@@ -4,9 +4,8 @@ export const FormContainer = styled.form`
     margin: 1rem;
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
-    max-width: 40rem;
-    width: 100%;
+    background-color: white;
+    width: 80%;
 `
 
 export const FieldContainer = styled.div`
@@ -21,6 +20,6 @@ export const FieldContainer = styled.div`
 export const CheckField = styled.div`
     display: flex;
     flex-direction: row;
-    width: 10%;
+    width: 15%;
     align-items: center;
 `

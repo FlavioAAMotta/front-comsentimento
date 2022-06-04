@@ -1,19 +1,13 @@
 import axios from "axios";
-//import { baseURL } from "../constants/baseurl";
+import { BASE_URL } from "../constants/urls";
 
-export const LoginData = (body) => {
-    // const url= `${baseURL}/login`;
+export const LoginData = async (body) => {
     const url =
-        "http://localhost:3003/users/login";
-
-    axios
-        .post(url, body)
-        .then((res) => {
-            localStorage.setItem("token", res.data.message);
-            //dataUp(res.data);
-        })
-        .catch((err) => {
-            console.log(err.response);
-            alert(err.response.data.message);
-        });
+        `${BASE_URL}/users/login`;
+    try {
+        const res = await axios.post(url, body)
+        localStorage.setItem("token", res.data.message);
+    } catch (err) {
+        alert("Dados inválidos");
+    }
 };

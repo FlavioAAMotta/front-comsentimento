@@ -5,6 +5,7 @@ import {NoticeContainer, MainStyle, Logo} from "./styled"
 import logo from "../../images/comsentimento_simbolo-01.png"
 import { goToHomePage } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
+import { useProtectedPage } from "../../hooks/useProtectedPage"
 
 export const Main = () => {
     const [creatingRule, setCreatingRule] = useState(false)
@@ -29,6 +30,7 @@ export const Main = () => {
     }
 
 
+    useProtectedPage()
     return (
         <MainStyle>
             <div>

@@ -1,19 +1,26 @@
-import React, { useState } from "react"
+import React from "react"
 import { LoginContainer } from "./styled"
 import { MainStyle } from "../../styled-app"
 import useForm from "../../hooks/useRequestData";
 import { LoginData } from "../../services/login";
+import { goToMainPage } from "../../routes/coordinator"
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-    const { form, onChange,clear } = useForm({
+    const { form, onChange, clear } = useForm({
         email: "",
         password: "",
     });
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-        LoginData(form);
-        clear()
+    const navigate = useNavigate();
+    const onSubmit = async (event) => {
+        try {
+            event.preventDefault();
+            await LoginData(form)
+            goToMainPage(navigate)
+            clear();
+        } catch (err) {
+            alert("Erro inesperado");
+        }
     };
 
     return (

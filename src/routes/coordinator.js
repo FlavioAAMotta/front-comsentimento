@@ -1,3 +1,7 @@
+export const goToMainPage = (navigate) => {
+    navigate("/")
+}
+
 export const goToHomePage = (navigate) => {
     navigate("/login")
 }
