@@ -12,8 +12,7 @@ export const addNotice = async (form) => {
         noticeDescription: form.description,
         noticeOpeningDate: form.date,
         noticePDFDetails: form.filePath,
-        noticeStatus: form.checkbox,
-
+        noticeStatus: form.checkbox || "0",
     }
     const url = `${BASE_URL}/notices`;
     try {
