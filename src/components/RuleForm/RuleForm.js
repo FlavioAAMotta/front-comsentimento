@@ -1,21 +1,51 @@
 import { FormContainer, FieldContainer, CheckField } from './styled-form'
 
-export const RuleForm = (props) =>{
-    return(
-        <FormContainer onSubmit={props.onCancel}>
+export const RuleForm = (props) => {
+    return (
+        <FormContainer onSubmit={props.onSubmit}>
             <FieldContainer>
-                <input type="text" placeholder="Título" />
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Título"
+                    value={props.form.title}
+                    onChange={props.onChange}
+                />
                 <p onClick={props.onCancel}>X</p>
             </FieldContainer>
             <FieldContainer>
-                <input type="text" placeholder="Descrição" />
+                <input
+                    type="text"
+                    name="description"
+                    placeholder="Descrição"
+                    value={props.form.description}
+                    onChange={props.onChange}
+                />
             </FieldContainer>
             <FieldContainer>
-                <input type="date" placeholder="Data" />
-                <CheckField><p>Ativo: </p><input type="checkbox" placeholder="Status"/></CheckField>
+                <input
+                    type="date"
+                    name="date"
+                    value={props.form.date}
+                    onChange={props.onChange}
+                />
+                <CheckField><p>Ativo: </p>
+                    <input
+                        type="checkbox"
+                        name="checkbox"
+                        value={props.form.status}
+                        onChange={props.onChange}
+                    />
+                </CheckField>
             </FieldContainer>
             <FieldContainer>
-                <input type="file" placeholder="PDF" accept="application/pdf"/>
+                <input
+                    type="file"
+                    name="filePath"
+                    value={props.form.filePath}
+                    onChange={props.onChange}
+                    accept="application/pdf"
+                />
             </FieldContainer>
             <FieldContainer>
                 <button>ENVIAR</button>

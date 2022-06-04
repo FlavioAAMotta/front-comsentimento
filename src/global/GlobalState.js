@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useForm from "../hooks/useForm"
 import GlobalStateContext from './GlobalStateContext'
 import { BASE_URL } from "../constants/urls"
 
@@ -9,7 +10,7 @@ const GlobalState = (props) => {
 
     useEffect(() => {
         getNotices();
-    }, []);
+    }, [notices]);
 
     const getNotices = () => {
         axios

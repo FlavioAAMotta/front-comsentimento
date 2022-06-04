@@ -15,3 +15,6 @@ export const MainStyle = styled.div`
     justify-content: center;
     align-items: center;
 `
+export const ButtonAdd = styled.p`
+    cursor: pointer; 
+`
