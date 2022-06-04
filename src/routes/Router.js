@@ -5,7 +5,7 @@ import { Main } from "../pages/Main/Main";
 import { BrowserRouter } from "react-router-dom";
 //import ErrorPage from '../pages/ErrorPage/ErrorPage';
 
-const Router = ({ setLoginButton, currentPage, changeCurrentPage, questions, getQuestions, isLoading, error }) => {
+const Router = () => {
     return (
         <BrowserRouter>
             <Routes>

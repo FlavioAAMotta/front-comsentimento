@@ -1,11 +1,15 @@
 import React, { useState, useContext } from "react"
 import { RuleForm } from "../../components/RuleForm/RuleForm"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import {NoticeContainer, MainStyle} from "./styled"
+import {NoticeContainer, MainStyle, Logo} from "./styled"
+import logo from "../../images/comsentimento_simbolo-01.png"
+import { goToHomePage } from "../../routes/coordinator"
+import { useNavigate } from "react-router-dom";
 
 export const Main = () => {
     const [creatingRule, setCreatingRule] = useState(false)
     const { data } = useContext(GlobalStateContext);
+    const navigate = useNavigate()
 
     const createRule = () => {
         setCreatingRule(true)
@@ -20,10 +24,16 @@ export const Main = () => {
         setCreatingRule(false)
     }
 
+    const onClickLogo = ()=>{
+        goToHomePage(navigate)
+    }
 
 
     return (
         <MainStyle>
+            <div>
+                <Logo src={logo} onClick={onClickLogo}/>
+            </div>
             <h2>Olá</h2>
             <p onClick={createRule}>Adicionar edital</p>
             {creatingRule && <RuleForm onCancel={cancelCreation} onSubmit={onSubmit} />}

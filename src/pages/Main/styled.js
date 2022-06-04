@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const Logo = styled.img`
+    width: 5em;
+    cursor: pointer; 
+`
+
 export const NoticeContainer = styled.div`
     border: 1px solid black;
     width: 80%;
