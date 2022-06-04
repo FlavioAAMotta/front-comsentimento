@@ -3,7 +3,7 @@ import { RuleForm } from "../../components/RuleForm/RuleForm"
 import GlobalStateContext from "../../global/GlobalStateContext"
 import { NoticeContainer, MainStyle, Logo, ButtonAdd } from "./styled"
 import logo from "../../images/comsentimento_simbolo-01.png"
-import { goToHomePage } from "../../routes/coordinator"
+import { goToMainPage } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import useForm from "../../hooks/useForm"
@@ -40,7 +40,7 @@ export const Main = () => {
     }
 
     const onClickLogo = () => {
-        goToHomePage(navigate)
+        goToMainPage(navigate)
     }
 
     useProtectedPage()
