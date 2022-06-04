@@ -1,21 +1,29 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import GlobalStateContext from './GlobalStateContext'
-import useRequestData from "../hooks/useRequestData";
+import { BASE_URL } from "../constants/urls"
 
 import axios from 'axios';
 
 const GlobalState = (props) => {
-    const url = "http://localhost:3003/users/login"
-    const [isLoading, setIsLoading] = useState(false)
-    const login = (body) =>{
-        const response = axios.post(url, body)
+    const [notices, setNotices] = useState([]);
+
+    useEffect(() => {
+        getNotices();
+    }, []);
+
+    const getNotices = () => {
+        axios
+            .get(`${BASE_URL}/notices?limit=10`)
+            .then((response) => {
+                setNotices(response.data);
+            })
+            .catch((error) => console.log(error.message));
     }
 
-    const states = {isLoading}
-    const setters = {setIsLoading}
-    const requests = {login}
+    const data = { notices, getNotices }
+
     return (
-        <GlobalStateContext.Provider value ={{states, setters, requests}}>
+        <GlobalStateContext.Provider value={{ data }}>
             {props.children}
         </GlobalStateContext.Provider>
     )
