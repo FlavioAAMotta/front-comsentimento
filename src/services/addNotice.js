@@ -16,9 +16,6 @@ export const addNotice = async (form) => {
     }
     const url = `${BASE_URL}/notices`;
     try {
-        console.log("URL:", url)
-        console.log("body:", body)
-        console.log("axiosConfig:", axiosConfig)
         const res = await axios.post(url, body,axiosConfig)
     } catch (err) {
         alert("Dados inválidos");
