@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react"
 import { RuleForm } from "../../components/RuleForm/RuleForm"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import { NoticeContainer, MainStyle, Logo, ButtonAdd } from "./styled"
+import { MainStyle, Logo, ButtonAdd } from "./styled"
+import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
 import logo from "../../images/comsentimento_simbolo-01.png"
-import { goToMainPage } from "../../routes/coordinator"
+import { goToMainPage, goToNoticeDetails } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import useForm from "../../hooks/useForm"
-import {addNotice} from "../../services/addNotice"
+import { addNotice } from "../../services/addNotice"
 
 export const Main = () => {
     const { form, onChange, clear } = useForm({
@@ -43,6 +44,19 @@ export const Main = () => {
         goToMainPage(navigate)
     }
 
+    const handleNoticeClick = (id) => {
+        goToNoticeDetails(navigate, id)
+    }
+
+    const mapNotices = data.notices.map((notice) => {
+        return (
+            <NoticeContainer
+                key={notice.noticeId}
+                handleClick={handleNoticeClick}
+                notice={notice}
+            />)
+    })
+
     useProtectedPage()
     return (
         <MainStyle>
@@ -53,16 +67,8 @@ export const Main = () => {
             <ButtonAdd onClick={createRule}>Adicionar edital</ButtonAdd>
             {creatingRule && <RuleForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} />}
             <hr />
-            {data.notices &&
-                data.notices.map((notice) => {
-                    return <NoticeContainer key={notice.noticeId}>
-                        <p>{notice.noticeTitle}</p>
-                        <p>{notice.noticeDescription}</p>
-                        <p>{notice.noticeOpeningDate}</p>
-                        <p>{notice.noticePDFDetailsPath}</p>
-                        <p>{notice.noticeStatus}</p>
-                    </NoticeContainer>;
-                })}
+            {data.notices && mapNotices}
+
         </MainStyle>
     );
 }
