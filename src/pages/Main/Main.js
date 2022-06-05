@@ -5,7 +5,7 @@ import { MainStyle, ButtonAdd, Notices } from "./styled"
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
-import { goToMainPage, goToNoticeDetails } from "../../routes/coordinator"
+import { goToNoticeDetails } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import useForm from "../../hooks/useForm"
@@ -41,10 +41,6 @@ export const Main = () => {
         }
     }
 
-    const onClickLogo = () => {
-        goToMainPage(navigate)
-    }
-
     const handleNoticeClick = (id) => {
         goToNoticeDetails(navigate, id)
     }
@@ -65,7 +61,7 @@ export const Main = () => {
     useProtectedPage()
     return (
         <>
-            <Header onClick={onClickLogo} />
+            <Header/>
             <MainStyle>
                 <ButtonAdd onClick={createRule}>Adicionar edital</ButtonAdd>
                 {creatingRule && <RuleForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}

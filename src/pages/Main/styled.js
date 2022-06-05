@@ -28,17 +28,9 @@ export const MainStyle = styled.div`
 `
 export const Notices = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     position: relative;
     justify-content: space-around;
     width: 80%;
     margin-top: 16px;
-    @media(min-width: 1740px) {
-        flex-direction: row;
-    }
-    @media(min-width: 1026px) and (max-width: 1664px){
-        flex-direction: column;
-    }
-
-
 `

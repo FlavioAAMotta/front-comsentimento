@@ -2,6 +2,7 @@ import styled from 'styled-components';
 export const FooterContainer = styled.div`
     background-image: linear-gradient(rgb(130,118,249), rgb(196,191,236));
     padding: 70px 0;
+    margin-top: 64px;
 `
 
 export const Row = styled.div`
