@@ -56,16 +56,12 @@ export const Main = () => {
                 notice={notice}
             />)
     })
-    const checkStatus = () => {
-        console.log(form.status)
-    }
     const changeStatus = () => {
         form.status = !form.status
     }
     useProtectedPage()
     return (
         <MainStyle>
-            <button onClick={checkStatus}>CheckStatus</button>
             <header>
                 <Logo src={logo} onClick={onClickLogo} />
             </header>

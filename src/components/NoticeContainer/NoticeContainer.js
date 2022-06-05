@@ -10,16 +10,17 @@ export const NoticeContainer = (props) => {
         <>
             {
                 props.notice.noticeStatus == 1 ?
-                    <Container onClick={handleNoticeClick}>
+                    <Container>
                         <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
 
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
                         {/* <p>{props.notice.noticeOpeningDate}</p> */}
-                        <Button
+                        <Button onClick={handleNoticeClick}
                             status={props.notice.noticeStatus}
                         />
-                    </Container> :
-                    <DisabledContainer onClick={handleNoticeClick}>
+                    </Container> 
+                    :
+                    <DisabledContainer>
                         <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
 
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>

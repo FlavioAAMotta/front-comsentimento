@@ -31,7 +31,7 @@ export const Button = (props) => {
                     ENCERRADO
                 </FinishedColor>
                 :
-                <OpenColor>
+                <OpenColor onClick={props.onClick}>
                     VER MAIS
                 </OpenColor>
             }
