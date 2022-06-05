@@ -1,8 +1,14 @@
+import styled from 'styled-components';
+export const DescriptionStyled = styled.p`
+text-align: justify;
+text-justify: inter-word;
+`
+
 export const Description = (props) => {
     const textSize = 450
     return (
-        <p>
+        <DescriptionStyled>
             {props.noticeDescription.substring(0, textSize)}
-            {props.noticeDescription.length > textSize ? "..." : ""}</p>
+            {props.noticeDescription.length > textSize ? "..." : ""}</DescriptionStyled>
     );
 }
