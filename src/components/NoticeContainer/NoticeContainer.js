@@ -1,14 +1,6 @@
-import styled from 'styled-components';
-
-const Container = styled.div`
-    border: 1px solid black;
-    width: 80%;
-    margin-bottom: 8px;
-    cursor: pointer;
-    :hover{
-        background-color: lightgray;
-    }
-`
+import {Container, NoticeTitle} from "./styled"
+import { Description } from "../Description/Description";
+import {Button} from "../Atomic/Button"
 
 export const NoticeContainer = (props) => {
     const handleNoticeClick = () => {
@@ -17,11 +9,11 @@ export const NoticeContainer = (props) => {
 
     return(
         <Container onClick={handleNoticeClick}>
-            <p>{props.notice.noticeTitle}</p>
-            <p>{props.notice.noticeDescription}</p>
+            <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
+            <Description noticeDescription = {props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
             <p>{props.notice.noticeOpeningDate}</p>
-            <p>{props.notice.noticePDFDetailsPath}</p>
             <p>{props.notice.noticeStatus}</p>
+            <Button text = "Ver mais"/>
         </Container>
     );
 }

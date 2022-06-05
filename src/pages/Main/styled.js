@@ -13,3 +13,10 @@ export const MainStyle = styled.div`
 export const ButtonAdd = styled.p`
     cursor: pointer; 
 `
+export const Notices = styled.div`
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+`

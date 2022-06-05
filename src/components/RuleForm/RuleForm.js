@@ -14,13 +14,8 @@ export const RuleForm = (props) => {
                 <p onClick={props.onCancel}>X</p>
             </FieldContainer>
             <FieldContainer>
-                <input
-                    type="text"
-                    name="description"
-                    placeholder="Descrição"
-                    value={props.form.description}
-                    onChange={props.onChange}
-                />
+                <textarea name="Text1" cols="40" rows="5" value={props.form.description}
+                    onChange={props.onChange} placeholder="Descrição"></textarea>
             </FieldContainer>
             <FieldContainer>
                 <input

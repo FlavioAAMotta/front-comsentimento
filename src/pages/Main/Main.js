@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react"
 import { RuleForm } from "../../components/RuleForm/RuleForm"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import { MainStyle, Logo, ButtonAdd } from "./styled"
+import { MainStyle, Logo, ButtonAdd, Notices } from "./styled"
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
 import logo from "../../images/comsentimento_simbolo-01.png"
 import { goToMainPage, goToNoticeDetails } from "../../routes/coordinator"
@@ -67,7 +67,10 @@ export const Main = () => {
             <ButtonAdd onClick={createRule}>Adicionar edital</ButtonAdd>
             {creatingRule && <RuleForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} />}
             <hr />
-            {data.notices && mapNotices}
+            <Notices>
+                {data.notices &&
+                    mapNotices}
+            </Notices>
 
         </MainStyle>
     );
