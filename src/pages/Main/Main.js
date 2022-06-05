@@ -56,16 +56,22 @@ export const Main = () => {
                 notice={notice}
             />)
     })
-
+    const checkStatus = () => {
+        console.log(form.status)
+    }
+    const changeStatus = () => {
+        form.status = !form.status
+    }
     useProtectedPage()
     return (
         <MainStyle>
+            <button onClick={checkStatus}>CheckStatus</button>
             <header>
                 <Logo src={logo} onClick={onClickLogo} />
             </header>
 
             <ButtonAdd onClick={createRule}>Adicionar edital</ButtonAdd>
-            {creatingRule && <RuleForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} />}
+            {creatingRule && <RuleForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
             <hr />
             <Notices>
                 {data.notices &&

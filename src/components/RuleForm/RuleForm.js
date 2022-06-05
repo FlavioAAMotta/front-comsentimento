@@ -14,8 +14,11 @@ export const RuleForm = (props) => {
                 <p onClick={props.onCancel}>X</p>
             </FieldContainer>
             <FieldContainer>
-                <textarea name="Text1" cols="40" rows="5" value={props.form.description}
-                    onChange={props.onChange} placeholder="Descrição"></textarea>
+                <textarea
+                    name="description"
+                    cols="40" rows="5"
+                    value={props.form.description}
+                    onChange={props.onChange} placeholder="Descrição"/>
             </FieldContainer>
             <FieldContainer>
                 <input
@@ -27,9 +30,9 @@ export const RuleForm = (props) => {
                 <CheckField><p>Ativo: </p>
                     <input
                         type="checkbox"
-                        name="checkbox"
+                        name="status"
                         value={props.form.status}
-                        onChange={props.onChange}
+                        onChange={props.onChangeStatus}
                     />
                 </CheckField>
             </FieldContainer>
