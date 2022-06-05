@@ -15,27 +15,17 @@ export const MainStyle = styled.div`
     align-items: center;
 `
 export const Notices = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-row: 1fr;
-    grid-column-gap: 5px;
-    align-self: center;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-around;
     width: 80%;
-    border: 1px solid black;
     margin-top: 16px;
-    height:90em;
-    justify-items: stretch;
     @media(min-width: 1740px) {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
+        flex-direction: row;
     }
-    @media(min-width: 1026px) and (max-width: 1740px){
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-    }
-    @media(max-width: 1026px) {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+    @media(min-width: 1026px) and (max-width: 1664px){
+        flex-direction: column;
     }
 
 

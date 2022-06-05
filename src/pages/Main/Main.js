@@ -3,6 +3,7 @@ import { RuleForm } from "../../components/RuleForm/RuleForm"
 import GlobalStateContext from "../../global/GlobalStateContext"
 import { MainStyle, Logo, ButtonAdd, Notices } from "./styled"
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
+import { Footer } from "../../components/Footer/Footer"
 import logo from "../../images/comsentimento_simbolo-01.png"
 import { goToMainPage, goToNoticeDetails } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
@@ -63,19 +64,21 @@ export const Main = () => {
     }
     useProtectedPage()
     return (
-        <MainStyle>
-            <header>
-                <Logo src={logo} onClick={onClickLogo} />
-            </header>
+        <>
+            <MainStyle>
+                <header>
+                    <Logo src={logo} onClick={onClickLogo} />
+                </header>
 
-            <ButtonAdd onClick={createRule}>Adicionar edital</ButtonAdd>
-            {creatingRule && <RuleForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
-            <hr />
-            <Notices>
-                {data.notices &&
-                    mapNotices}
-            </Notices>
-
-        </MainStyle>
+                <ButtonAdd onClick={createRule}>Adicionar edital</ButtonAdd>
+                {creatingRule && <RuleForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
+                <hr />
+                <Notices>
+                    {data.notices &&
+                        mapNotices}
+                </Notices>
+            </MainStyle>
+            <Footer />
+        </>
     );
 }
