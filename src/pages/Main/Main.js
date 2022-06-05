@@ -50,11 +50,13 @@ export const Main = () => {
 
     const mapNotices = data.notices.map((notice) => {
         return (
-            <NoticeContainer
-                key={notice.noticeId}
-                handleClick={handleNoticeClick}
-                notice={notice}
-            />)
+            <>
+                <NoticeContainer
+                    key={notice.noticeId}
+                    handleClick={handleNoticeClick}
+                    notice={notice}
+                />
+            </>)
     })
     const changeStatus = () => {
         form.status = !form.status

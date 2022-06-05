@@ -8,9 +8,9 @@ export const Container = styled.div`
     background-color: ${lightVariant};
     border-radius: 20px;
     padding: 0px 16px;
-    width: 30em;
-    height: 30em;
-     cursor: default;    
+    cursor: default;    
+    width: 27em;
+    height: 27em;
 `
 export const NoticeTitle = styled.p`
     align-self: center;
@@ -24,8 +24,8 @@ export const DisabledContainer = styled.div`
     justify-content: space-around;
     background-color: #C4C2D6;
     border-radius: 20px;
-    padding: 0px 16px;
-    width: 30em;
-    height: 30em;
-     cursor: default;    
+    padding: 0px 16px;  
+    width: 27em;
+    height: 27em;
+    cursor: default;    
 `
