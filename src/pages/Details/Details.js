@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { getNoticeDetails } from "../../services/details"
 import { useParams } from "react-router-dom"
 import { CardDetails, DetailPage, DetailTitle } from "./styled"
+import { useNavigate } from "react-router-dom";
+import { goBack } from "../../routes/coordinator"
 
 export const Details = () => {
     const pathParams = useParams();
     const [details, setDetails] = useState({})
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const getDetails = async () => {
@@ -22,9 +25,13 @@ export const Details = () => {
         getDetails()
     }, []);
 
+    const onBack = () => {
+        goBack(navigate)
+    }
+
     const mappedDetails = 
             <CardDetails>
-                <DetailTitle>Título{details.noticeTitle} </DetailTitle>
+                <DetailTitle>{details.noticeTitle} </DetailTitle>
                 <hr/>
                 <p>Descrição: {details.noticeDescription}
                     </p>
@@ -35,7 +42,7 @@ export const Details = () => {
             
     return (
         <DetailPage>
-            Detalhe
+            <button onClick={onBack}>Voltar</button>
             {loading || mappedDetails}
         </DetailPage>
     )

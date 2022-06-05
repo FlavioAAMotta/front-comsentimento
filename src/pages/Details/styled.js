@@ -10,7 +10,7 @@ export const CardDetails = styled.div`
     width: 80%;
     border-radius: 20px;
     background-color: white;
-    font-size: 25px;
+    font-size: 18px;
 `
 export const DetailTitle = styled.p`
     align-self: center;
