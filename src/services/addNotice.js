@@ -12,10 +12,11 @@ export const addNotice = async (form) => {
         noticeDescription: form.description,
         noticeOpeningDate: form.date,
         noticePDFDetails: form.filePath,
-        noticeStatus: form.checkbox || "0",
+        noticeStatus: form.status || "0"
     }
     const url = `${BASE_URL}/notices`;
     try {
+        console.log(body);
         const res = await axios.post(url, body,axiosConfig)
     } catch (err) {
         alert("Dados inválidos");

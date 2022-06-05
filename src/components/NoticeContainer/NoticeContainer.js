@@ -14,11 +14,8 @@ export const NoticeContainer = (props) => {
 
             <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
             {/* <p>{props.notice.noticeOpeningDate}</p> */}
-
-            <p>{props.notice.noticeStatus}</p>
             <Button
-                text=
-                {props.notice.noticeStatus ? "Encerrado" : "Ver mais"}
+                status= {props.notice.noticeStatus}                
             />
         </Container>
     );
