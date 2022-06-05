@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react"
 import { RuleForm } from "../../components/RuleForm/RuleForm"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import { MainStyle, Logo, ButtonAdd, Notices } from "./styled"
+import { MainStyle, ButtonAdd, Notices } from "./styled"
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
 import { Footer } from "../../components/Footer/Footer"
-import logo from "../../images/comsentimento_simbolo-01.png"
+import { Header } from "../../components/Header/Header"
 import { goToMainPage, goToNoticeDetails } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage"
@@ -65,11 +65,8 @@ export const Main = () => {
     useProtectedPage()
     return (
         <>
+            <Header onClick={onClickLogo} />
             <MainStyle>
-                <header>
-                    <Logo src={logo} onClick={onClickLogo} />
-                </header>
-
                 <ButtonAdd onClick={createRule}>Adicionar edital</ButtonAdd>
                 {creatingRule && <RuleForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
                 <hr />
