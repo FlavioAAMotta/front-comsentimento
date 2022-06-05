@@ -18,7 +18,6 @@ const FinishedColor = styled.nav`
     padding: 12px 20px;
     border-radius: 20px;
     align-self: center;
-    cursor: not-allowed;
     border: none;
     display: inline-block;
 ;`

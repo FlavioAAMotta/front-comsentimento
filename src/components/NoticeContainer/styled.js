@@ -15,7 +15,8 @@ export const Container = styled.div`
 export const NoticeTitle = styled.p`
     align-self: center;
     margin-top: -16px;
-    font-size: 32px;
+    font-size: 28px;
+    margin-left: -60px;
 `
 
 export const DisabledContainer = styled.div`
@@ -29,4 +30,10 @@ export const DisabledContainer = styled.div`
     margin: 16px 0px;  
     background-color: #C4C2D6;
     border: 2px solid red;
+`
+
+export const ContainerRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 `

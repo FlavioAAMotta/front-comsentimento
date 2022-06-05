@@ -1,4 +1,4 @@
-import { Container, NoticeTitle, DisabledContainer } from "./styled"
+import { Container, NoticeTitle, DisabledContainer, ContainerRow } from "./styled"
 import { Description } from "../Description/Description";
 import { Button } from "../Atomic/Button"
 
@@ -11,23 +11,35 @@ export const NoticeContainer = (props) => {
             {
                 props.notice.noticeStatus == 1 ?
                     <Container>
-                        <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
-
+                        <ContainerRow>
+                            <p>{props.notice.noticeOpeningDate}</p>
+                            <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
+                            <div />
+                        </ContainerRow>
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
-                        {/* <p>{props.notice.noticeOpeningDate}</p> */}
-                        <Button onClick={handleNoticeClick}
-                            status={props.notice.noticeStatus}
-                        />
-                    </Container> 
+                        <ContainerRow>
+                            <div/>
+                            <Button onClick={handleNoticeClick}
+                                status={props.notice.noticeStatus}
+                            />
+                            <div />
+                        </ContainerRow>
+                    </Container>
                     :
                     <DisabledContainer>
-                        <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
-
+                        <ContainerRow>
+                            <p>{props.notice.noticeOpeningDate}</p>
+                            <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
+                            <div />
+                        </ContainerRow>
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
-                        {/* <p>{props.notice.noticeOpeningDate}</p> */}
-                        <Button
-                            status={props.notice.noticeStatus}
-                        />
+                        <ContainerRow>
+                            <div />
+                            <Button
+                                status={props.notice.noticeStatus}
+                            />
+                            <div />
+                        </ContainerRow>
                     </DisabledContainer>}
         </>
     );
