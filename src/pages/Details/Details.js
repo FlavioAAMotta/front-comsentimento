@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getNoticeDetails } from "../../services/details"
 import { useParams } from "react-router-dom"
+import { CardDetails, DetailPage, DetailTitle } from "./styled"
 
 export const Details = () => {
     const pathParams = useParams();
     const [details, setDetails] = useState({})
     const [loading, setLoading] = useState(false)
-
-    
+    const [showMore, setShowMore] = useState(false)
 
     useEffect(() => {
         const getDetails = async () => {
@@ -25,24 +25,29 @@ export const Details = () => {
         getDetails()
     }, []);
 
-    const mappedDetails = 
-            <>
-                <p>{details.noticeDescription} </p>
-                <p>{details.noticeId} </p>
-                <p>{details.noticeOpeningDate} </p>
-                <p>{details.noticePDFDetailsPath} </p>
-                <p>{details.noticeStatus} </p>
-                <p>{details.noticeTitle} </p>
-            </>
-            
-    const imprime = () => {
-        console.log(details)
+    const changeButtonVisibility = () => {
+        setShowMore(!showMore)
     }
+
+    const mappedDetails = 
+            <CardDetails>
+                <DetailTitle>Título{details.noticeTitle} </DetailTitle>
+                <hr/>
+                <p>Descrição: 
+                    {showMore ? details.noticeDescription : `${details.noticeDescription.substring(0,250)}`} 
+                    
+                    <button onClick={changeButtonVisibility}>
+                        {showMore ? "Mostrar menos" : "Mostrar mais"}
+                    </button></p>
+                <p>Data de criação: {details.noticeOpeningDate} </p>
+                <p>Caminho: {details.noticePDFDetailsPath} </p>
+                <p>Aberto: {details.noticeStatus} </p>
+            </CardDetails>
+            
     return (
-        <>
+        <DetailPage>
             Detalhe
-            <button onClick={imprime}>console</button>
             {loading || mappedDetails}
-        </>
+        </DetailPage>
     )
 }
