@@ -1,22 +1,25 @@
+import axios from "axios";
 import React, { useState } from "react";
 
-const useForm = (initialState) => {
+const useRequestData = (url) => {
+  const [data, setData] = useState(undefined);
+  const [isLoading, setisLoading] = useState(false);
+  const [error, setError] = useState("");
   
-  const [form, setForm] = useState(initialState);
-
-
-  const onChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
-
-    setForm({ ...form, [name]: value });
-  };
-
-  const clear = () => {
-    setForm(initialState);
-  };
-
-  return { form, onChange, clear };
+  useEffect(() =>{
+    setisLoading(true);
+    axios.get(url)
+    .then((response) =>{
+      setData(res.data);
+    })
+    .catch((error) =>{
+      setError(error);
+    }).finally(() => {
+      setisLoading(false);      
+    });
+  },[url])
+  
+  return [data, setData, isLoading, error];
 };
 
-export default useForm;
+export default useRequestData;
