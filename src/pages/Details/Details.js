@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getNoticeDetails } from "../../services/details"
+import { getNoticeDetails } from "../../endpoints/details"
 import { useParams } from "react-router-dom"
 import { CardDetails, DetailPage, DetailTitle } from "./styled"
 import { useNavigate } from "react-router-dom";

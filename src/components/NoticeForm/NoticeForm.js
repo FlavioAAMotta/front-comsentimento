@@ -1,6 +1,6 @@
 import { FormContainer, FieldContainer, CheckField } from './styled-form'
 
-export const RuleForm = (props) => {
+export const NoticeForm = (props) => {
     return (
         <FormContainer onSubmit={props.onSubmit}>
             <FieldContainer>

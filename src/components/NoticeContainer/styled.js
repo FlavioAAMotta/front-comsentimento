@@ -7,16 +7,14 @@ export const Container = styled.div`
     justify-content: space-around;
     border-radius: 10px;
     padding: 8px 16px;  
-    height: 10em;
+    height: 32vh;
     cursor: default;  
     margin: 16px 0px;
     background-color: ${lightVariant};
 `
 export const NoticeTitle = styled.p`
     align-self: center;
-    margin-top: -16px;
-    font-size: 28px;
-    margin-left: -60px;
+    font-size: 25px;
 `
 
 export const DisabledContainer = styled.div`
@@ -25,7 +23,7 @@ export const DisabledContainer = styled.div`
     justify-content: space-around;
     border-radius: 10px;
     padding: 8px 16px;  
-    height: 10em;
+    height: 32vh;
     cursor: default;  
     margin: 16px 0px;  
     background-color: #C4C2D6;
@@ -36,4 +34,5 @@ export const ContainerRow = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 `

@@ -11,34 +11,28 @@ export const NoticeContainer = (props) => {
             {
                 props.notice.noticeStatus == 1 ?
                     <Container>
-                        <ContainerRow>
-                            <p>{props.notice.noticeOpeningDate}</p>
-                            <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
-                            <div />
-                        </ContainerRow>
+                        <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
+                        <hr />
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
                         <ContainerRow>
-                            <div/>
+                            <p>{props.notice.noticeOpeningDate}</p>
                             <Button onClick={handleNoticeClick}
                                 status={props.notice.noticeStatus}
                             />
-                            <div />
+                            <a href="#">Arquivo pdf</a>
                         </ContainerRow>
                     </Container>
                     :
                     <DisabledContainer>
-                        <ContainerRow>
-                            <p>{props.notice.noticeOpeningDate}</p>
-                            <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
-                            <div />
-                        </ContainerRow>
+                        <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
+                        <hr />
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
                         <ContainerRow>
-                            <div />
+                            <p>{props.notice.noticeOpeningDate}</p>
                             <Button
                                 status={props.notice.noticeStatus}
                             />
-                            <div />
+                            <a href="#">Arquivo pdf</a>
                         </ContainerRow>
                     </DisabledContainer>}
         </>

@@ -2,7 +2,7 @@ import React from "react"
 import { LoginContainer } from "./styled"
 import { MainStyle } from "../../styled-app"
 import useForm from "../../hooks/useRequestData";
-import { LoginData } from "../../services/login";
+import { LoginData } from "../../endpoints/login";
 import { goToMainPage } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
 
