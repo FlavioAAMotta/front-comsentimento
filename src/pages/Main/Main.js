@@ -44,12 +44,8 @@ export const Main = () => {
 
     const addNewNotices = (newNotices) => {
         if (notices.length > 0) {
-            console.log("newNotices", newNotices)
-            console.log("notices", notices)
             const updatedNotices = [...notices, newNotices].flat()
-            console.log("updatedNotices", updatedNotices)
             setNotices(updatedNotices)
-            console.log("notices", notices)
         }else {
             setNotices(newNotices);
         }
@@ -99,14 +95,10 @@ export const Main = () => {
     const changeStatus = () => {
         form.status = !form.status
     }
-    const checkNotices = () => {
-        console.log(notices)
-    }
 
     useProtectedPage()
     return (
         <>
-            <button onClick={checkNotices}>checkNotices</button>
             <Header />
             <MainStyle>
                 <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>
