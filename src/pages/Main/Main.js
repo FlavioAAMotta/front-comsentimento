@@ -5,8 +5,8 @@ import { NoticeContainer } from "../../components/NoticeContainer/NoticeContaine
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { ButtonAdd } from "../../components/ButtonAdd/ButtonAdd"
-import { goToNoticeDetails } from "../../routes/coordinator"
-import { useNavigate } from "react-router-dom";
+import { goToNoticeDetails, goToMainPageByPage } from "../../routes/coordinator"
+import { useNavigate, useParams } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import useForm from "../../hooks/useForm"
 import { addNotice } from "../../endpoints/addNotice"
@@ -14,6 +14,7 @@ import useRequestData from "../../hooks/useRequestData"
 import { BASE_URL } from '../../constants/urls'
 
 export const Main = () => {
+    const pathParams = useParams();
     const { form, onChange } = useForm({
         title: "",
         description: "",
@@ -21,12 +22,20 @@ export const Main = () => {
         filePath: "",
         status: false
     });
-    const [page, setPage] = useState(1)
-    const [url, setUrl] = useState(`${BASE_URL}/notices?limit=4&offset=0`)
-    const [creatingNotice, setCreatingNotice] = useState(false)
-
-    const [notices, isLoading, error] = useRequestData(url)
     const navigate = useNavigate()
+    const [page, setPage] = useState(1)
+    const [url, setUrl] = useState(``)
+    const [creatingNotice, setCreatingNotice] = useState(false)
+    const [notices, isLoading] = useRequestData(url)
+
+    useEffect(() => {
+        console.log(pathParams.navPage)
+        setUrl(`${BASE_URL}/notices?limit=4&offset=${pathParams.navPage}`)
+    }, [pathParams.navPage])
+
+    useEffect(() => {
+        setUrl(`${BASE_URL}/notices?limit=4&offset=0`)
+    }, [])
 
     const createNotice = () => {
         setCreatingNotice(true)
@@ -61,9 +70,8 @@ export const Main = () => {
     })
 
     const loadMore = async () => {
-        setPage(page + 1)
-        console.log(page)
-        setUrl(`${BASE_URL}/notices?limit=4&offset=${page}`)
+        goToMainPageByPage(navigate, ++pathParams.navPage)
+        //setUrl(`${BASE_URL}/notices?limit=4&offset=${page}`)
     }
 
     const changeStatus = () => {
@@ -80,7 +88,6 @@ export const Main = () => {
                 <hr />
                 <Notices>
                     {isLoading && <p>Carregando...</p>}
-                    {!isLoading && error && <p>Erro ao carregar editais</p>}
                     {!isLoading && notices && noticesList}
                     {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
                 </Notices>

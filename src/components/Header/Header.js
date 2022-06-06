@@ -1,12 +1,12 @@
 import logo from "../../images/comsentimento_horizontal-01.png"
 import { Logo, HeaderDesign,Login} from "./styled"
 import { useNavigate } from "react-router-dom";
-import { goToLoginPage, goToMainPage } from "../../routes/coordinator"
+import { goToLoginPage, goToMainPageByPage } from "../../routes/coordinator"
 
 export const Header = (props) => {
     const navigate = useNavigate()
     const onClickLogo = () => {
-        goToMainPage(navigate)
+        goToMainPageByPage(navigate,0)
     }
     const onClickLogin = () => {
         goToLoginPage(navigate)

@@ -2,7 +2,10 @@ export const goToNoticeDetails = (navigate, id) => {
     navigate(`/details/${id}`)
 }
 export const goToMainPage = (navigate) => {
-    navigate("/")
+    navigate("/notices/0")
+}
+export const goToMainPageByPage = (navigate, page) => {
+    navigate(`/notices/${page}`)
 }
 
 export const goToLoginPage = (navigate) => {
