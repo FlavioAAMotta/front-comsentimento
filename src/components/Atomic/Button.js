@@ -25,7 +25,7 @@ const FinishedColor = styled.nav`
 export const Button = (props) => {
     return (
         <>
-            {props.status == 0 ?
+            {props.status == "false" ?
                 <FinishedColor>
                     ENCERRADO
                 </FinishedColor>
