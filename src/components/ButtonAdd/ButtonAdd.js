@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ButtonAdd =styled.p`
 margin-top: 16px;
+margin-bottom: 16px;
 border: solid 2px #5c4cf7;
 padding: 0.7em;
 border-radius: 10px;

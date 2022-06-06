@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { NoticeForm } from "../../components/NoticeForm/NoticeForm"
-import { MainStyle, Notices } from "./styled"
+import { MainStyle, Notices, MainContainer } from "./styled"
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
@@ -23,18 +23,17 @@ export const Main = () => {
         status: false
     });
     const navigate = useNavigate()
-    const [page, setPage] = useState(1)
     const [url, setUrl] = useState(``)
     const [creatingNotice, setCreatingNotice] = useState(false)
     const [notices, isLoading] = useRequestData(url)
 
     useEffect(() => {
         console.log(pathParams.navPage)
-        setUrl(`${BASE_URL}/notices?limit=4&offset=${pathParams.navPage}`)
+        setUrl(`${BASE_URL}/notices?limit=3&offset=${pathParams.navPage}`)
     }, [pathParams.navPage])
 
     useEffect(() => {
-        setUrl(`${BASE_URL}/notices?limit=4&offset=0`)
+        setUrl(`${BASE_URL}/notices?limit=3&offset=0`)
     }, [])
 
     const createNotice = () => {
@@ -69,9 +68,11 @@ export const Main = () => {
             </>)
     })
 
-    const loadMore = async () => {
+    const goForth = async () => {
         goToMainPageByPage(navigate, ++pathParams.navPage)
-        //setUrl(`${BASE_URL}/notices?limit=4&offset=${page}`)
+    }
+    const goBack = async () => {
+        goToMainPageByPage(navigate, --pathParams.navPage)
     }
 
     const changeStatus = () => {
@@ -82,17 +83,21 @@ export const Main = () => {
     return (
         <>
             <Header />
-            <MainStyle>
-                <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>
-                {creatingNotice && <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
-                <hr />
-                <Notices>
-                    {isLoading && <p>Carregando...</p>}
-                    {!isLoading && notices && noticesList}
-                    {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
-                </Notices>
-                <ButtonAdd onClick={loadMore}>Próxima página </ButtonAdd>
-            </MainStyle>
+            <MainContainer>
+                <>{!isLoading && pathParams.navPage != 0 && <ButtonAdd onClick={goBack}>Página anterior </ButtonAdd>}</>
+                <MainStyle>
+                    {!isLoading && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
+                    <p>Página: {pathParams.navPage}</p>
+                    {creatingNotice && <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
+                    <hr />
+                    <Notices>
+                        {isLoading && <p>Carregando...</p>}
+                        {!isLoading && notices && noticesList}
+                        {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
+                    </Notices>
+                </MainStyle>
+                {!isLoading && <ButtonAdd onClick={goForth}>Próxima página </ButtonAdd>}
+            </MainContainer>
             <Footer />
         </>
     );

@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const MainContainer = styled.header`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`
+
 export const MainStyle = styled.div`
     display: flex;
     flex-direction: column;
