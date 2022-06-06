@@ -31,7 +31,6 @@ export const Details = () => {
         <DetailPage>
             <button onClick={onBack}>Voltar</button>
             {isLoading && <p>Carregando...</p>}
-            {!isLoading && console.log(details)}
             {!isLoading && error && <p>Erro ao carregar detalhes</p>}
             {!isLoading && details && mappedDetails}
             {!isLoading && details && details.length === 0 && (<p>Nada a mostrar</p>)}

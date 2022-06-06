@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react"
 import { NoticeForm } from "../../components/NoticeForm/NoticeForm"
-import { MainStyle, ButtonAdd, Notices } from "./styled"
+import { MainStyle, Notices } from "./styled"
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
+import { ButtonAdd } from "../../components/ButtonAdd/ButtonAdd"
 import { goToNoticeDetails } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import useForm from "../../hooks/useForm"
 import { addNotice } from "../../endpoints/addNotice"
-import { getNotice } from "../../endpoints/getNotice"
+import useRequestData from "../../hooks/useRequestData"
+import { BASE_URL } from '../../constants/urls'
 
 export const Main = () => {
     const { form, onChange } = useForm({
@@ -19,47 +21,13 @@ export const Main = () => {
         filePath: "",
         status: false
     });
+    const [page, setPage] = useState(1)
+    const [url, setUrl] = useState(`${BASE_URL}/notices?limit=4&offset=0`)
     const [creatingNotice, setCreatingNotice] = useState(false)
-    const [loading, setLoading] = useState(false)
-    const [page, setPage] = useState(0)
-    const [notices, setNotices] = useState([])
+
+    const [notices, isLoading, error] = useRequestData(url)
     const navigate = useNavigate()
 
-    const getNotices = async (page) => {
-        try {
-            setLoading(true)
-            const fetchNotice = await getNotice(page)
-            addNewNotices(fetchNotice)
-            setLoading(false)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
-        setLoading(true)
-        getNotices(0)
-        setLoading(false)
-    }, [])
-
-    const addNewNotices = (newNotices) => {
-        if (notices.length > 0) {
-            const updatedNotices = [...notices, newNotices].flat()
-            setNotices(updatedNotices)
-        }else {
-            setNotices(newNotices);
-        }
-    };
-
-    const loadMore = async () => {
-        try {
-            console.log(page)
-            setPage(page + 1)
-            getNotices(page)
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
     const createNotice = () => {
         setCreatingNotice(true)
     }
@@ -81,7 +49,7 @@ export const Main = () => {
         goToNoticeDetails(navigate, id)
     }
 
-    const mapNotices = notices.map((notice) => {
+    const noticesList = notices && notices.map((notice) => {
         return (
             <>
                 <NoticeContainer
@@ -91,6 +59,12 @@ export const Main = () => {
                 />
             </>)
     })
+
+    const loadMore = async () => {
+        setPage(page + 1)
+        console.log(page)
+        setUrl(`${BASE_URL}/notices?limit=4&offset=${page}`)
+    }
 
     const changeStatus = () => {
         form.status = !form.status
@@ -105,11 +79,12 @@ export const Main = () => {
                 {creatingNotice && <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
                 <hr />
                 <Notices>
-                    {notices && mapNotices}
+                    {isLoading && <p>Carregando...</p>}
+                    {!isLoading && error && <p>Erro ao carregar editais</p>}
+                    {!isLoading && notices && noticesList}
+                    {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
                 </Notices>
-                <ButtonAdd onClick={loadMore}>
-                    {loading ? "Carregando..." : "Carregar mais"}
-                </ButtonAdd>
+                <ButtonAdd onClick={loadMore}>Próxima página </ButtonAdd>
             </MainStyle>
             <Footer />
         </>
