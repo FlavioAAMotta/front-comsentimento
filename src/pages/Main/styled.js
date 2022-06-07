@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 export const MainContainer = styled.header`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 `
 
 export const MainStyle = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 `

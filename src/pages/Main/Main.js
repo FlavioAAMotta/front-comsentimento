@@ -85,10 +85,10 @@ export const Main = () => {
         <>
             <Header />
             <MainContainer>
-                <>{!isLoading && pathParams.navPage > 0 && <NavigationButton onClick={goBack}> &lt; </NavigationButton> || <div></div>}</>
-                <MainStyle>
                     {!isLoading && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
                     <p>Página: {pathParams.navPage}</p>
+                <MainStyle>
+                <>{!isLoading && pathParams.navPage > 0 && <NavigationButton onClick={goBack}> &lt; </NavigationButton> || <div></div>}</>
                     {creatingNotice && <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
                     <hr />
                     <Notices>
@@ -96,8 +96,8 @@ export const Main = () => {
                         {!isLoading && notices && noticesList}
                         {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
                     </Notices>
-                </MainStyle>
                 {!isLoading && notices && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
+                </MainStyle>
             </MainContainer>
             <Footer />
         </>
