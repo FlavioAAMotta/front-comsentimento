@@ -30,9 +30,9 @@ export const Main = () => {
     useEffect(() => {
         const page = pathParams.navPage || 0
         setUrl(`${BASE_URL}/notices?limit=3&offset=${page}`)
-    },[pathParams.navPage])
+    }, [pathParams.navPage])
 
-    if(!pathParams.navPage){
+    if (!pathParams.navPage) {
         pathParams.navPage = 0
     }
     const createNotice = () => {
@@ -73,7 +73,12 @@ export const Main = () => {
         goToMainPageByPage(navigate, ++pathParams.navPage)
     }
     const goBack = async () => {
-        goToMainPageByPage(navigate, --pathParams.navPage)
+        if (pathParams.navPage <= 0) {
+            alert("Essa é a página mais atual")
+            pathParams.navPage = 0
+        } else {
+            goToMainPageByPage(navigate, --pathParams.navPage)
+        }
     }
 
     const changeStatus = () => {
@@ -85,18 +90,18 @@ export const Main = () => {
         <>
             <Header />
             <MainContainer>
-                    {!isLoading && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
-                    <p>Página: {pathParams.navPage}</p>
+                {!isLoading && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
+                <p>Página: {pathParams.navPage}</p>
+                {creatingNotice && <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
                 <MainStyle>
-                <>{!isLoading && pathParams.navPage > 0 && <NavigationButton onClick={goBack}> &lt; </NavigationButton> || <div></div>}</>
-                    {creatingNotice && <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
+                    <>{!isLoading && <NavigationButton onClick={goBack}> &lt; </NavigationButton>}</>
                     <hr />
                     <Notices>
                         {isLoading && <p>Carregando...</p>}
                         {!isLoading && notices && noticesList}
                         {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
                     </Notices>
-                {!isLoading && notices && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
+                    {!isLoading && notices && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
                 </MainStyle>
             </MainContainer>
             <Footer />
