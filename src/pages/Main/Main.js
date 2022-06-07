@@ -94,7 +94,7 @@ export const Main = () => {
                         {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
                     </Notices>
                 </MainStyle>
-                {!isLoading && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
+                {!isLoading && notices.length > 0 && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
             </MainContainer>
             <Footer />
         </>

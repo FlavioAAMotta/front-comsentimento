@@ -11,6 +11,7 @@ export const Container = styled.div`
     cursor: default;  
     margin: 16px 0px;
     background-color: ${lightVariant};
+    background-color: "#001100";
 `
 export const NoticeTitle = styled.p`
     align-self: center;

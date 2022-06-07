@@ -1,7 +1,7 @@
 import React from "react"
 import { LoginContainer } from "./styled"
 import { MainStyle } from "../../styled-app"
-import useForm from "../../hooks/useRequestData";
+import useForm from "../../hooks/useForm";
 import { LoginData } from "../../endpoints/login";
 import { goToMainPage } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,6 @@ export const Login = () => {
             event.preventDefault();
             await LoginData(form)
             goToMainPage(navigate)
-            clear();
         } catch (err) {
             alert("Erro inesperado");
         }
