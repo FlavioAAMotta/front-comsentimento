@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { NoticeForm } from "../../components/NoticeForm/NoticeForm"
 import { MainStyle, Notices, MainContainer } from "./styled"
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
@@ -7,11 +7,11 @@ import { Header } from "../../components/Header/Header"
 import { ButtonAdd, NavigationButton } from "../../components/ButtonAdd/ButtonAdd"
 import { goToNoticeDetails, goToMainPageByPage } from "../../routes/coordinator"
 import { useNavigate, useParams } from "react-router-dom";
-import { useProtectedPage } from "../../hooks/useProtectedPage"
 import useForm from "../../hooks/useForm"
 import { addNotice } from "../../endpoints/addNotice"
 import useRequestData from "../../hooks/useRequestData"
 import { BASE_URL } from '../../constants/urls'
+import GlobalStateContext from "../../global/GlobalStateContext";
 
 export const Main = () => {
     const pathParams = useParams();
@@ -26,6 +26,7 @@ export const Main = () => {
     const [url, setUrl] = useState(``)
     const [creatingNotice, setCreatingNotice] = useState(false)
     const [notices, isLoading] = useRequestData(url)
+    const {data} = useContext(GlobalStateContext);
 
     useEffect(() => {
         const page = pathParams.navPage || 0
@@ -85,12 +86,11 @@ export const Main = () => {
         form.status = !form.status
     }
 
-    useProtectedPage()
     return (
         <>
             <Header />
             <MainContainer>
-                {!isLoading && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
+                {!isLoading && data.loggedIn && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
                 <p>Página: {pathParams.navPage}</p>
                 {creatingNotice && <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
                 <MainStyle>

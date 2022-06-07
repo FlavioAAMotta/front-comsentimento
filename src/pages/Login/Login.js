@@ -1,10 +1,11 @@
-import React from "react"
+import React, {useContext} from "react"
 import { LoginContainer } from "./styled"
 import { MainStyle } from "../../styled-app"
 import useForm from "../../hooks/useForm";
 import { LoginData } from "../../endpoints/login";
 import { goToMainPage } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
+import GlobalStateContext from "../../global/GlobalStateContext";
 
 export const Login = () => {
     const { form, onChange, clear } = useForm({
@@ -12,13 +13,16 @@ export const Login = () => {
         password: "",
     });
     const navigate = useNavigate();
+    const {data} = useContext(GlobalStateContext);
     const onSubmit = async (event) => {
         try {
             event.preventDefault();
             await LoginData(form)
+            data.setLoggedIn(true)
+            console.log("Login: sucesso", data.loggedIn)
             goToMainPage(navigate)
         } catch (err) {
-            alert("Erro inesperado");
+            alert("Falha ao fazer login");
         }
     };
 

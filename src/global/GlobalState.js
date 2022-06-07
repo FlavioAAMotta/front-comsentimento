@@ -6,10 +6,10 @@ import { BASE_URL } from "../constants/urls"
 import axios from 'axios';
 
 const GlobalState = (props) => {
-    
-
+    const [loggedIn, setLoggedIn] = useState(false)
+    const data = {loggedIn, setLoggedIn}
     return (
-        <GlobalStateContext.Provider>
+        <GlobalStateContext.Provider value = {{data}}>
             {props.children}
         </GlobalStateContext.Provider>
     )
