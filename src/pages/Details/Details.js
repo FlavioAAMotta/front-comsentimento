@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { goBack } from "../../routes/coordinator"
 import { BASE_URL } from "../../constants/urls";
 import useRequestData from "../../hooks/useRequestData"
+import { Footer } from "../../components/Footer/Footer"
+import { Header } from "../../components/Header/Header"
 
 export const Details = () => {
     const pathParams = useParams();
@@ -34,6 +36,7 @@ export const Details = () => {
             {!isLoading && error && <p>Erro ao carregar detalhes</p>}
             {!isLoading && details && mappedDetails}
             {!isLoading && details && details.length === 0 && (<p>Nada a mostrar</p>)}
+            <Footer/>
         </DetailPage>
     )
 }

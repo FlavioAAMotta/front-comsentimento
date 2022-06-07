@@ -4,7 +4,7 @@ import { MainStyle, Notices, MainContainer } from "./styled"
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
-import { ButtonAdd, NavigationButton } from "../../components/ButtonAdd/ButtonAdd"
+import { ButtonAdd, NavigationButton, Button } from "../../components/ButtonAdd/ButtonAdd"
 import { goToNoticeDetails, goToMainPageByPage } from "../../routes/coordinator"
 import { useNavigate, useParams } from "react-router-dom";
 import useForm from "../../hooks/useForm"
@@ -26,7 +26,8 @@ export const Main = () => {
     const [url, setUrl] = useState(``)
     const [creatingNotice, setCreatingNotice] = useState(false)
     const [notices, isLoading] = useRequestData(url)
-    const {data} = useContext(GlobalStateContext);
+    const { data } = useContext(GlobalStateContext);
+
 
     useEffect(() => {
         const page = pathParams.navPage || 0

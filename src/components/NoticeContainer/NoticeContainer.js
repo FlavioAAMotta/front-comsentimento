@@ -1,11 +1,18 @@
-import { Container, NoticeTitle, DisabledContainer, ContainerRow } from "./styled"
+import { Container, NoticeTitle, DisabledContainer } from "./styled"
 import { Description } from "../Description/Description";
-import { Button } from "../Atomic/Button"
+import { Button } from "../../components/ButtonAdd/ButtonAdd"
+import { Modal } from "../../components/Modal/Modal"
+import React, { useState } from "react"
 
 export const NoticeContainer = (props) => {
+    const [showModal, setShowModal] = useState(false);
+    
     const handleNoticeClick = () => {
         props.handleClick(props.notice.noticeId);
     }
+    const openModal = () => {
+        setShowModal(prev => !prev);
+    };
     return (
         <>
             {
@@ -14,9 +21,8 @@ export const NoticeContainer = (props) => {
                         <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
                         <hr />
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
-                        <Button onClick={handleNoticeClick}
-                            status={props.notice.noticeStatus}
-                        />
+                        <Button onClick={openModal}>Ver Mais</Button>
+                        <Modal showModal={showModal} setShowModal={setShowModal} />
                     </Container>
                     :
                     <DisabledContainer>
