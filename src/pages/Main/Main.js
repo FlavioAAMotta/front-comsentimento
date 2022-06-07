@@ -28,14 +28,12 @@ export const Main = () => {
     const [notices, isLoading] = useRequestData(url)
 
     useEffect(() => {
-        console.log(pathParams.navPage)
-        setUrl(`${BASE_URL}/notices?limit=3&offset=${pathParams.navPage}`)
+        const page = pathParams.navPage || 0
+        setUrl(`${BASE_URL}/notices?limit=3&offset=${page}`)
     }, [pathParams.navPage])
-
-    useEffect(() => {
-        setUrl(`${BASE_URL}/notices?limit=3&offset=0`)
-    }, [])
-
+    if(!pathParams.navPage){
+        pathParams.navPage = 0
+    }
     const createNotice = () => {
         setCreatingNotice(true)
     }

@@ -9,8 +9,11 @@ const useRequestData = (url) => {
   const getData = async () => {
     try {
       setisLoading(true);
+      console.log("URL:", url)
       const response = await axios.get(url)
       setData(response.data);
+      //console.log("Response",response)
+      console.log("Response", response)
     } catch (error) {
       setError(error);
     } finally {
