@@ -24,8 +24,8 @@ export const DisabledContainer = styled.div`
     padding: 8px 16px;  
     height: 14vh;
     cursor: default;  
-    margin: 16px 0px;  
-    background-color: #C4C2D6;
+    margin: 16px 0px;
+    background-color: #dabec8;
 `
 
 export const ContainerRow = styled.div`

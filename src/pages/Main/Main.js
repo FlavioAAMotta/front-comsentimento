@@ -56,16 +56,11 @@ export const Main = () => {
         }
     }
 
-    const handleNoticeClick = (id) => {
-        goToNoticeDetails(navigate, id)
-    }
-
     const noticesList = notices && notices.map((notice) => {
         return (
             <>
                 <NoticeContainer
                     key={notice.noticeId}
-                    handleClick={handleNoticeClick}
                     notice={notice}
                 />
             </>)
@@ -92,7 +87,8 @@ export const Main = () => {
             <Header />
             <MainContainer>
                 {!creatingNotice && !isLoading && data.loggedIn && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
-                {creatingNotice && <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
+                {creatingNotice && 
+                    <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
                 <MainStyle>
                     <>{!isLoading && <NavigationButton onClick={goBack}> &lt; </NavigationButton>}</>
                     <hr />

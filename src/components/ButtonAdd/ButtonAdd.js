@@ -1,15 +1,27 @@
 import styled from 'styled-components';
-export const Button = styled.button`
+import { secondColor } from "../../constants/colors"
+
+export const ButtonOpen = styled.button`
+  background-color: #5c4cf7;
   min-width: 100px;
-  padding: 16px 32px;
+  padding: 12px 20px;
   border-radius: 4px;
   border: none;
-  background: #141414;
-  background-color: #5c4cf7;
   color: white;
   font-size: 24px;
   cursor: pointer;
 `;
+
+export const ButtonClosed = styled.button`
+    background-color: #fa4949;
+    min-width: 100px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+;`
 
 export const ButtonAdd = styled.p`
     margin: 16px 64px;

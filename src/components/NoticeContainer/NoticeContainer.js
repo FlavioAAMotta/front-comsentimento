@@ -1,15 +1,12 @@
 import { Container, NoticeTitle, DisabledContainer } from "./styled"
 import { Description } from "../Description/Description";
-import { Button } from "../../components/ButtonAdd/ButtonAdd"
+import { ButtonOpen, ButtonClosed } from "../../components/ButtonAdd/ButtonAdd"
 import { Modal } from "../../components/Modal/Modal"
 import React, { useState } from "react"
 
 export const NoticeContainer = (props) => {
     const [showModal, setShowModal] = useState(false);
     
-    const handleNoticeClick = () => {
-        props.handleClick(props.notice.noticeId);
-    }
     const openModal = () => {
         setShowModal(prev => !prev);
     };
@@ -21,7 +18,7 @@ export const NoticeContainer = (props) => {
                         <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
                         <hr />
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
-                        <Button onClick={openModal}>Ver Mais</Button>
+                        <ButtonOpen onClick={openModal}>Ver Mais</ButtonOpen>
                         <Modal showModal={showModal} setShowModal={setShowModal} data={props.notice} />
                     </Container>
                     :
@@ -29,9 +26,8 @@ export const NoticeContainer = (props) => {
                         <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
                         <hr />
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
-                        <Button
-                            status={props.notice.noticeStatus}
-                        />
+                        <ButtonClosed onClick={openModal}>Encerrado</ButtonClosed>
+                        <Modal showModal={showModal} setShowModal={setShowModal} data={props.notice} />
                     </DisabledContainer>}
         </>
     );
