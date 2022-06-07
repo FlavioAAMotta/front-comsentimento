@@ -9,7 +9,7 @@ export const NoticeContainer = (props) => {
     return (
         <>
             {
-                props.notice.noticeStatus === "true" ?
+                props.notice.noticeStatus == 1 ?
                     <Container>
                         <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
                         <hr />
@@ -31,7 +31,7 @@ export const NoticeContainer = (props) => {
                             <p>{props.notice.noticeOpeningDate}</p>
                             <Button
                                 status={props.notice.noticeStatus}
-                            />
+                                />
                             <a href="#">Arquivo pdf</a>
                         </ContainerRow>
                     </DisabledContainer>}

@@ -82,7 +82,7 @@ export const Main = () => {
         <>
             <Header />
             <MainContainer>
-                <>{!isLoading && pathParams.navPage != 0 && <NavigationButton onClick={goBack}> &lt; </NavigationButton>}</>
+                <>{!isLoading && pathParams.navPage > 0 && <NavigationButton onClick={goBack}> &lt; </NavigationButton>}</>
                 <MainStyle>
                     {!isLoading && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
                     <p>Página: {pathParams.navPage}</p>
@@ -94,7 +94,7 @@ export const Main = () => {
                         {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
                     </Notices>
                 </MainStyle>
-                {!isLoading && notices.length > 0 && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
+                {!isLoading && notices && notices.length > 0 && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
             </MainContainer>
             <Footer />
         </>
