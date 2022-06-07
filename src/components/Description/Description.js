@@ -5,11 +5,13 @@ text-justify: inter-word;
 `
 
 export const Description = (props) => {
-    const textSize = 450
+    const words = props.noticeDescription && props.noticeDescription.split(/( )/);
+    const descriptionWordCount = 16
+    const wordsToPrint = words.slice(0, descriptionWordCount)
     return (
         <DescriptionStyled>
-            {props.noticeDescription && props.noticeDescription.substring(0, textSize)}
-            {props.noticeDescription && props.noticeDescription.length > textSize ? "..." : ""}
+            {props.noticeDescription && wordsToPrint}
+            {props.noticeDescription && props.noticeDescription.split(' ').length > descriptionWordCount ? "..." : ""}
         </DescriptionStyled>
     );
 }
