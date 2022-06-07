@@ -45,8 +45,8 @@ export const Modal = ({ showModal, setShowModal, data }) => {
               <ModalContent>
                 <h1>{data.noticeTitle}</h1>
                 <ModalDescription>{data.noticeDescription}</ModalDescription>
-                <p>Abertura: {data.noticeOpeningDate}</p>
-                <ModalPDFButton>Ver PDF</ModalPDFButton>
+                {data.noticeStatus == "0" ?<p>EDITAL ENCERRADO</p> :<p>Abertura: {data.noticeOpeningDate}</p>}
+                <ModalPDFButton>{data.noticeStatus == "0" ? <p>Ver PDF (EDITAL ENCERRADO)</p> : <p>Ver PDF</p>}</ModalPDFButton>
               </ModalContent>
               <CloseModalButton
                 aria-label='Close modal'
