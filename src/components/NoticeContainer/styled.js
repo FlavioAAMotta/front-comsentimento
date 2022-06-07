@@ -7,7 +7,7 @@ export const Container = styled.div`
     justify-content: space-around;
     border-radius: 10px;
     padding: 8px 16px;  
-    height: 32vh;
+    height: 12vh;
     cursor: default;  
     margin: 16px 0px;
     background-color: ${lightVariant};
@@ -24,7 +24,7 @@ export const DisabledContainer = styled.div`
     justify-content: space-around;
     border-radius: 10px;
     padding: 8px 16px;  
-    height: 32vh;
+    height: 12vh;
     cursor: default;  
     margin: 16px 0px;  
     background-color: #C4C2D6;

@@ -30,11 +30,13 @@ export const Main = () => {
     useEffect(() => {
         const page = pathParams.navPage || 0
         setUrl(`${BASE_URL}/notices?limit=3&offset=${page}`)
-    }, [pathParams.navPage])
+    },[pathParams.navPage])
+
     if(!pathParams.navPage){
         pathParams.navPage = 0
     }
     const createNotice = () => {
+        form.filePath = ""
         setCreatingNotice(true)
     }
     const cancelCreation = () => {
@@ -46,6 +48,7 @@ export const Main = () => {
             event.preventDefault()
             setCreatingNotice(false)
             await addNotice(form)
+            document.location.reload(true);
         } catch (e) {
             console.log(e)
         }
@@ -82,7 +85,7 @@ export const Main = () => {
         <>
             <Header />
             <MainContainer>
-                <>{!isLoading && pathParams.navPage > 0 && <NavigationButton onClick={goBack}> &lt; </NavigationButton>}</>
+                <>{!isLoading && pathParams.navPage > 0 && <NavigationButton onClick={goBack}> &lt; </NavigationButton> || <div></div>}</>
                 <MainStyle>
                     {!isLoading && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
                     <p>Página: {pathParams.navPage}</p>
@@ -94,7 +97,7 @@ export const Main = () => {
                         {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
                     </Notices>
                 </MainStyle>
-                {!isLoading && notices && notices.length > 0 && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
+                {!isLoading && notices && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
             </MainContainer>
             <Footer />
         </>

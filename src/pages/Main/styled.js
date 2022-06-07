@@ -18,6 +18,6 @@ export const Notices = styled.div`
     flex-direction: column;
     position: relative;
     justify-content: space-around;
-    width: 80%;
+    width: 60vw;
     margin-top: 16px;
 `

@@ -20,7 +20,7 @@ export const ButtonAdd = styled.p`
     }
 `
 export const NavigationButton = styled.p`
-    margin: 80px;
+    margin: 40px;
     padding: 1em;
     border-radius: 10px;
     color: #5c4cf7;
