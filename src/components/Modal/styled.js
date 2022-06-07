@@ -11,6 +11,9 @@ export const CloseModalButton = styled(MdClose)`
   padding: 0;
   z-index: 10;
 `;
+export const ModalPDFButton = styled.button`
+  cursor: pointer;
+`;
 
 export const Background = styled.div`
 width: 100%;
@@ -43,21 +46,26 @@ height: 100%;
 border-radius: 10px 0 0 10px;
 background: #000;
 `;
-
+export const ModalDescription = styled.p`
+    overflow: auto;
+    height: 25vh;
+`
 export const ModalContent = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-line-height: 1.8;
-color: #141414;
-p {
-margin-bottom: 1rem;
-}
-button {
-padding: 10px 24px;
-background: #141414;
-color: #fff;
-border: none;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.8;
+    color: #141414;
+    padding: 16px;
+    text-align: justify;
+    p {
+        margin-bottom: 1rem;
+    }
+    button {
+        padding: 10px 24px;
+        background: #141414;
+        color: #fff;
+        border: none;
+    }
 `;

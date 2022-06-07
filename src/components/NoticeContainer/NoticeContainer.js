@@ -22,7 +22,7 @@ export const NoticeContainer = (props) => {
                         <hr />
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
                         <Button onClick={openModal}>Ver Mais</Button>
-                        <Modal showModal={showModal} setShowModal={setShowModal} />
+                        <Modal showModal={showModal} setShowModal={setShowModal} data={props.notice} />
                     </Container>
                     :
                     <DisabledContainer>

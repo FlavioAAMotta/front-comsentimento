@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
-import {Background, ModalWrapper, ModalImg, ModalContent, CloseModalButton} from "./styled"
+import {Background, ModalWrapper, ModalImg, ModalContent, CloseModalButton, ModalDescription, ModalPDFButton} from "./styled"
 
-export const Modal = ({ showModal, setShowModal }) => {
+export const Modal = ({ showModal, setShowModal, data }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -27,7 +27,7 @@ export const Modal = ({ showModal, setShowModal }) => {
     },
     [setShowModal, showModal]
   );
-
+  
   useEffect(
     () => {
       document.addEventListener('keydown', keyPress);
@@ -35,7 +35,6 @@ export const Modal = ({ showModal, setShowModal }) => {
     },
     [keyPress]
   );
-
   return (
     <>
       {showModal ? (
@@ -44,10 +43,10 @@ export const Modal = ({ showModal, setShowModal }) => {
             <ModalWrapper showModal={showModal}>
               <ModalImg src={require('../../images/comsentimento_simbolo-05.png')} alt='camera' />
               <ModalContent>
-                <h1>Título</h1>
-                <p>Descrição</p>
-                <p>Data</p>
-                <button>Ver PDF</button>
+                <h1>{data.noticeTitle}</h1>
+                <ModalDescription>{data.noticeDescription}</ModalDescription>
+                <p>Abertura: {data.noticeOpeningDate}</p>
+                <ModalPDFButton>Ver PDF</ModalPDFButton>
               </ModalContent>
               <CloseModalButton
                 aria-label='Close modal'
