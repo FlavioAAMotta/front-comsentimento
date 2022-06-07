@@ -5,9 +5,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border-radius: 10px;
     padding: 8px 16px;  
-    height: 12vh;
+    height: 14vh;
     cursor: default;  
     margin: 16px 0px;
     background-color: ${lightVariant};
@@ -22,13 +21,11 @@ export const DisabledContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border-radius: 10px;
     padding: 8px 16px;  
-    height: 12vh;
+    height: 14vh;
     cursor: default;  
     margin: 16px 0px;  
     background-color: #C4C2D6;
-    border: 2px solid red;
 `
 
 export const ContainerRow = styled.div`

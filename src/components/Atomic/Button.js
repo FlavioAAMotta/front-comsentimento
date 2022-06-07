@@ -1,25 +1,26 @@
 import styled from 'styled-components';
-import { thirdColor, thirdColorVariant } from "../../constants/colors"
+import { secondColor } from "../../constants/colors"
 
 const OpenColor = styled.nav`
-    background-color: ${thirdColorVariant};
     padding: 12px 20px;
-    border-radius: 20px;
+    font-size: 12px;
     align-self: center;
     cursor: pointer;
     :hover{
-        background-color: ${thirdColor};
+        color: ${secondColor};
     }
     border: none;
     display: inline-block;
+    color: white;
 ;`
 const FinishedColor = styled.nav`
     background-color: #D51621;
+    font-size: 12px;
     padding: 12px 20px;
-    border-radius: 20px;
     align-self: center;
     border: none;
     display: inline-block;
+    color: white;
 ;`
 
 export const Button = (props) => {

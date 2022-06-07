@@ -22,7 +22,7 @@ export const ButtonAdd = styled.p`
 export const NavigationButton = styled.p`
     margin: 40px;
     padding: 1em;
-    border-radius: 10px;
+    border-radius: 90px;
     color: #5c4cf7;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     background-color: #ddd;

@@ -14,26 +14,18 @@ export const NoticeContainer = (props) => {
                         <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
                         <hr />
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
-                        <ContainerRow>
-                            <p>{props.notice.noticeOpeningDate}</p>
-                            <Button onClick={handleNoticeClick}
-                                status={props.notice.noticeStatus}
-                            />
-                            <a href="#">Arquivo pdf</a>
-                        </ContainerRow>
+                        <Button onClick={handleNoticeClick}
+                            status={props.notice.noticeStatus}
+                        />
                     </Container>
                     :
                     <DisabledContainer>
                         <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
                         <hr />
                         <Description noticeDescription={props.notice.noticeDescription}>{props.notice.noticeDescription}</Description>
-                        <ContainerRow>
-                            <p>{props.notice.noticeOpeningDate}</p>
-                            <Button
-                                status={props.notice.noticeStatus}
-                                />
-                            <a href="#">Arquivo pdf</a>
-                        </ContainerRow>
+                        <Button
+                            status={props.notice.noticeStatus}
+                        />
                     </DisabledContainer>}
         </>
     );
