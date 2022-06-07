@@ -4,6 +4,7 @@ export const MainContainer = styled.header`
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 `
 
 export const MainStyle = styled.div`

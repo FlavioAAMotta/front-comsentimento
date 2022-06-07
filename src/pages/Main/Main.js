@@ -4,7 +4,7 @@ import { MainStyle, Notices, MainContainer } from "./styled"
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
-import { ButtonAdd } from "../../components/ButtonAdd/ButtonAdd"
+import { ButtonAdd, NavigationButton } from "../../components/ButtonAdd/ButtonAdd"
 import { goToNoticeDetails, goToMainPageByPage } from "../../routes/coordinator"
 import { useNavigate, useParams } from "react-router-dom";
 import { useProtectedPage } from "../../hooks/useProtectedPage"
@@ -82,7 +82,7 @@ export const Main = () => {
         <>
             <Header />
             <MainContainer>
-                <>{!isLoading && pathParams.navPage != 0 && <ButtonAdd onClick={goBack}>Página anterior </ButtonAdd>}</>
+                <>{!isLoading && pathParams.navPage != 0 && <NavigationButton onClick={goBack}> &lt; </NavigationButton>}</>
                 <MainStyle>
                     {!isLoading && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
                     <p>Página: {pathParams.navPage}</p>
@@ -94,7 +94,7 @@ export const Main = () => {
                         {!isLoading && notices && notices.length === 0 && (<p>Nada a mostrar</p>)}
                     </Notices>
                 </MainStyle>
-                {!isLoading && <ButtonAdd onClick={goForth}>Próxima página </ButtonAdd>}
+                {!isLoading && <NavigationButton onClick={goForth}> &gt; </NavigationButton>}
             </MainContainer>
             <Footer />
         </>
