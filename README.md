@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Comsentimento - Gerência de editais
+Front do projeto desenvolvido para realizar gerência de editais de seleção do ensino superior. Consumindo uma API também desenvolvida para esse projeto, foi feita uma tela de login, tela de exibição de editais cadastrados, formulário disponível para administradores para cadastro de novos editais e uso de uma modal para exibir detalhes dos editais.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 💻 Link do surge
+Em construção
 
-## Available Scripts
+## 🛠 Ferramentas e Tecnologias
+- React
+- Material UI
+- Axios
+- Styled Components
+- Node.js
 
-In the project directory, you can run:
+## ⚙️ Funcionalidades
+### Login
+Página de Login em que o usuário se habilita a criar e remover editais.
+Com inputs para o usuário entrar com sua conta com e-mail e senha.
+Quando o usuário fizer login o botão logout fica disponível no header.
 
-### `npm start`
+### Página de editais
+Página para listar os editais criados por adminstradores.
+Nesta página, caso o usuário seja administrador o botão de criar um novo edital estará habilitado, caso contrário o botão não estará disponível.
+São exibidos 3 editais por vez, a paginação é feita por parâmetro e também por botões disponíveis na página.
+É possível ver se o edital está ou não ativo, isso é feito de modo visual.
+Ao clicar para visualizar um edital abrirá uma modal
+Ao carregar alguma requisição o usuário visualiza um loading para saber que está sendo carregada
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Modal de detalhes
+É possível visualizar todos os detalhes do edital, também visualizando data de início do edital, status, título e detalhes.
+Um botão para fazer download do PDF do edital aparece, sendo exibido se o edital está ativo atualmente ou não.
