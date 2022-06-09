@@ -2,7 +2,7 @@ import { FormContainer, CancelContainer, SendContainer, CheckField, TitleContain
 
 export const NoticeForm = (props) => {
     return (
-        <FormContainer>
+        <FormContainer action="/pdfFile" method="post" enctype="multipart/form-data">
             <TitleContainer
                 type="text"
                 name="title"
@@ -34,9 +34,8 @@ export const NoticeForm = (props) => {
             </CheckField>
             <FileField
                 type="file"
-                name="filePath"
-                value={props.form.filePath}
-                onChange={props.onChange}
+                name="file"
+                onChange={props.onChangeFile}
                 accept="application/pdf"
             />
             <ButtonsContainer>

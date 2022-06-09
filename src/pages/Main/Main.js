@@ -5,7 +5,7 @@ import { NoticeContainer } from "../../components/NoticeContainer/NoticeContaine
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { ButtonAdd, NavigationButton, Button } from "../../components/ButtonAdd/ButtonAdd"
-import {goToMainPageByPage } from "../../routes/coordinator"
+import { goToMainPageByPage } from "../../routes/coordinator"
 import { useNavigate, useParams } from "react-router-dom";
 import useForm from "../../hooks/useForm"
 import { addNotice } from "../../endpoints/addNotice"
@@ -15,11 +15,12 @@ import GlobalStateContext from "../../global/GlobalStateContext";
 
 export const Main = (props) => {
     const pathParams = useParams();
-    const { form, onChange } = useForm({
+    const file ={file: null}
+    const { form, onChange, onChangeFile } = useForm({
         title: "",
         description: "",
         date: "",
-        filePath: "",
+        file,
         status: false
     });
     const navigate = useNavigate()
@@ -33,33 +34,50 @@ export const Main = (props) => {
         setUrl(`${BASE_URL}/notices?limit=3&offset=${page}`)
     }, [pathParams.navPage])
 
-    useEffect(() =>{
+    useEffect(() => {
         goToMainPageByPage(navigate, 0)
-    },[])
+    }, [])
 
     if (!pathParams.navPage) {
         pathParams.navPage = 0
     }
+
     const createNotice = () => {
-        form.filePath = ""
         setCreatingNotice(true)
     }
+
     const cancelCreation = () => {
         setCreatingNotice(false)
     }
 
+    const validateFields = (form) => {
+        if (
+            !form.title ||
+            !form.description ||
+            !form.date ||
+            !form.file
+        ) {
+            return false
+        }
+        return true
+    }
+
     const onSubmit = async (event) => {
         try {
+            console.log(form.file)
             event.preventDefault()
-            setCreatingNotice(false)
-            await addNotice(form)
-            document.location.reload(true);
+            if (validateFields(form)) {
+                setCreatingNotice(false)
+                await addNotice(form)
+            } else {
+                alert("Favor preencher todos os campos")
+            }
         } catch (e) {
-            console.log(e)
+            alert("Erro ao submeter o formulário, tente novamente mais tarde")
         }
     }
-    console.log(notices)
-    const noticesList = notices && !notices.includes("!DOCTYPE") && notices.length>0 && notices.map((notice) => {
+
+    const noticesList = notices && !notices.includes("!DOCTYPE") && notices.length > 0 && notices.map((notice) => {
         return (
             <>
                 <NoticeContainer
@@ -90,8 +108,8 @@ export const Main = (props) => {
             <Header />
             <MainContainer>
                 {!creatingNotice && !isLoading && data.loggedIn && <ButtonAdd onClick={createNotice}>Adicionar edital</ButtonAdd>}
-                {creatingNotice && 
-                    <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeStatus={changeStatus} />}
+                {creatingNotice &&
+                    <NoticeForm onCancel={cancelCreation} onSubmit={onSubmit} form={form} onChange={onChange} onChangeFile={onChangeFile} onChangeStatus={changeStatus} />}
                 <MainStyle>
                     <>{!isLoading && <NavigationButton onClick={goBack}> &lt; </NavigationButton>}</>
                     <hr />

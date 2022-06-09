@@ -11,12 +11,15 @@ const useForm = (initialState) => {
 
     setForm({ ...form, [name]: value });
   };
+  
+  const onChangeFile = (event) => {
+    const name = event.target.name;
+    let fileuploaded = event.target.files[0] 
+    let file = {file: fileuploaded}
+    setForm({ ...form, [name]: file });
+  }
 
-  const clear = () => {
-    setForm(initialState);
-  };
-
-  return { form, onChange};
+  return { form, onChange, onChangeFile};
 
 
 };
