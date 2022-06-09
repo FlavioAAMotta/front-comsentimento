@@ -39,11 +39,11 @@ export const Login = () => {
                 >
                     <div className="form__group field">
                         <input type="input" className="form__field"  name="email" id='email' required />
-                        <label for="email" className="form__label">Email</label>
+                        <label htmlFor="email" className="form__label">Email</label>
                     </div>
                     <div className="form__group field">
                         <input type="password" className="form__field"  name="senha" id='senha' required />
-                        <label for="senha" className="form__label">Senha</label>
+                        <label htmlFor="senha" className="form__label">Senha</label>
                     </div>
                     {<button className="login-button">Entrar</button>}
                 </form>
