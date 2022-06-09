@@ -15,12 +15,13 @@ const addFile = async (file) => {
     const url = `${BASE_URL}/pdfFile`;
     console.log(file)
     try {
-        await axios({
+        const fileName = await axios({
             url: url,
             method: "POST",
             data: file,
             headers: { "Content-Type": "multipart/form-data" },
         })
+        return fileName
     } catch (err) {
         alert("Dados inválidos");
     }
@@ -38,10 +39,11 @@ export const addNotice = async (form) => {
         noticePDFDetails: form.file,
         noticeStatus: form.status || "0"
     }
-    console.log(body)
     const url = `${BASE_URL}/notices`;
     try {
-        await addFile(body.noticePDFDetails)
+        const response = await addFile(body.noticePDFDetails)
+        body.noticePDFDetails = response.data
+        console.log(body)
         await axios.post(url, body, axiosConfig)
     } catch (err) {
         alert("Dados inválidos");
