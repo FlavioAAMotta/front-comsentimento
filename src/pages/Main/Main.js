@@ -13,7 +13,7 @@ import useRequestData from "../../hooks/useRequestData"
 import { BASE_URL } from '../../constants/urls'
 import GlobalStateContext from "../../global/GlobalStateContext";
 
-export const Main = () => {
+export const Main = (props) => {
     const pathParams = useParams();
     const { form, onChange } = useForm({
         title: "",
@@ -28,11 +28,14 @@ export const Main = () => {
     const [notices, isLoading] = useRequestData(url)
     const { data } = useContext(GlobalStateContext);
 
-
     useEffect(() => {
         const page = pathParams.navPage || 0
         setUrl(`${BASE_URL}/notices?limit=3&offset=${page}`)
     }, [pathParams.navPage])
+
+    useEffect(() =>{
+        goToMainPageByPage(navigate, 0)
+    },[])
 
     if (!pathParams.navPage) {
         pathParams.navPage = 0
@@ -55,8 +58,8 @@ export const Main = () => {
             console.log(e)
         }
     }
-
-    const noticesList = notices && notices.map((notice) => {
+    console.log(notices)
+    const noticesList = notices && !notices.includes("!DOCTYPE") && notices.length>0 && notices.map((notice) => {
         return (
             <>
                 <NoticeContainer
