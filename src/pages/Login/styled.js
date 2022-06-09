@@ -1,27 +1,24 @@
 import styled from 'styled-components';
 import { mainColor } from '../../constants/colors';
 
-export const LoginContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-    width: 40vw;
-    padding: 20px;
-    border: 1px solid ${mainColor};
-    border-radius: .5em;
-    background-color: white;
-    form{
-        display: flex;
-        flex-direction: column;
-        width: 35vw;
-    }
+export const LoginImage = styled.img`
+    width: 50vw;
+    position: absolute;
+    left: 5vw;
+    top: 10vh;
+`
 
-@media (max-width: 480px) {
-    width: 90vw;
-    form {
-        width: 80vw;
-    }
-}
+export const Logo = styled.img`
+    width: 350px;
+`
+export const Input = styled.input`
+    width: 350px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
 `

@@ -5,7 +5,7 @@ import { NoticeContainer } from "../../components/NoticeContainer/NoticeContaine
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { ButtonAdd, NavigationButton, Button } from "../../components/ButtonAdd/ButtonAdd"
-import { goToNoticeDetails, goToMainPageByPage } from "../../routes/coordinator"
+import {goToMainPageByPage } from "../../routes/coordinator"
 import { useNavigate, useParams } from "react-router-dom";
 import useForm from "../../hooks/useForm"
 import { addNotice } from "../../endpoints/addNotice"

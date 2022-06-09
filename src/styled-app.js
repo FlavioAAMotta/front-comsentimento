@@ -9,13 +9,13 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body{
-        background-color: ${lightBackground};
+        background-color: white;
     }
 `
 
 export const MainStyle = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 `
