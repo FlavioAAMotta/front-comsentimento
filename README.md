@@ -43,7 +43,11 @@ Excluir edital (Back já tem a funcionalidade)
 Editar edital (Back já tem a funcionalidade)
 
 ## Prints do projeto
+### Login page
 ![Login page](docs_imgs/login.png)
+### Home sem edital e sem logar
 ![Home page sem editais e não logado](docs_imgs/home.png)
+### Home com editais e logado
 ![Home page com editais e logado](docs_imgs/homeLog.png)
+### Modal de detalhes
 ![Details page](docs_imgs/details.png)
