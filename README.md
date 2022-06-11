@@ -11,6 +11,12 @@ comsentimento-flavio.sh
 - Styled Components
 - Node.js
 
+## Como executar
+- Clone o projeto para um repositório local 
+- Execute `npm i` para instalar as dependências.
+- Após finalizar a instalação execute `npm run start` para iniciar a aplicação
+- - É necessário executar a API para fazer as requisições ao backend
+
 ## ⚙️ Funcionalidades
 ### Login
 Página de Login em que o usuário se habilita a criar e remover editais.
@@ -35,3 +41,9 @@ Um botão para fazer download do PDF do edital aparece, sendo exibido se o edita
 Baixar PDF armazenado no backend
 Excluir edital (Back já tem a funcionalidade)
 Editar edital (Back já tem a funcionalidade)
+
+## Prints do projeto
+![Login page](docs_imgs/login.png)
+![Home page sem editais e não logado](docs_imgs/home.png)
+![Home page com editais e logado](docs_imgs/homeLog.png)
+![Details page](docs_imgs/details.png)
