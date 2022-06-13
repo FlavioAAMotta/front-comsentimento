@@ -17,15 +17,15 @@ export const Login = () => {
     });
     const navigate = useNavigate();
     const { data } = useContext(GlobalStateContext);
+
     const onSubmit = async (event) => {
+        event.preventDefault();
         try {
-            event.preventDefault();
-            await LoginData(form)
+            await LoginData(form) 
             data.setLoggedIn(true)
-            console.log("Login: sucesso", data.loggedIn)
             goToMainPage(navigate)
-        } catch (err) {
-            alert("Falha ao fazer login");
+        } catch (error) {
+            alert(error.message || "Falha no login")
         }
     };
 
@@ -38,11 +38,23 @@ export const Login = () => {
                     onSubmit={onSubmit}
                 >
                     <div className="form__group field">
-                        <input type="input" className="form__field"  name="email" id='email' required />
+                        <input
+                            type="input"
+                            className="form__field"
+                            name="email"
+                            onChange={onChange}
+                            id='email'
+                            required />
                         <label htmlFor="email" className="form__label">Email</label>
                     </div>
                     <div className="form__group field">
-                        <input type="password" className="form__field"  name="senha" id='senha' required />
+                        <input
+                            type="password"
+                            className="form__field"
+                            name="password"
+                            id='password'
+                            onChange={onChange}
+                            required />
                         <label htmlFor="senha" className="form__label">Senha</label>
                     </div>
                     {<button className="login-button">Entrar</button>}
