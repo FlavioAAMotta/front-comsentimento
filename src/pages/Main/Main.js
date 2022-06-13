@@ -35,6 +35,7 @@ export const Main = (props) => {
     }, [pathParams.navPage])
 
     useEffect(() => {
+        localStorage.getItem("token") && data.setLoggedIn(true)
         goToMainPageByPage(navigate, 0)
     }, [])
 
@@ -102,7 +103,7 @@ export const Main = (props) => {
     const changeStatus = () => {
         form.status = !form.status
     }
-
+    
     return (
         <>
             <Header />

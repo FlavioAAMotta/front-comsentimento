@@ -11,7 +11,7 @@ export const useProtectedPage = () => {
         const token = window.localStorage.getItem('token')
         if(token === null){
             alert("Você não está logado")
-            data.setLoggedIn = false;
+            data.setLoggedIn(false);
             goToLoginPage(navigate);
         }
     }, [navigate])
