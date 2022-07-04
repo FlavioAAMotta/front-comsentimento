@@ -1,33 +1,46 @@
 import styled from "styled-components";
 
 export const ButtonOpen = styled.button`
-  background-color: #5c4cf7;
+  background-color: white;
   min-width: 100px;
   padding: 6px 20px;
   border-radius: 4px;
-  border: none;
-  color: white;
+  border: 1px solid #044cbc;
   font-size: 24px;
+  color: #044cbc;
   cursor: pointer;
   margin-top: 16px;
-  margin-bottom: -22px;
+  margin-bottom: -12px;
   max-width: 150px;
   align-self: center;
+  :hover {
+    text-decoration-line: none;
+    background-color: #5c4cf7;
+    color: white;
+    transition: 0.2s all;
+  }
 `;
 
 export const ButtonClosed = styled.button`
-  background-color: #fa4949;
+  background-color: white;
   min-width: 100px;
   padding: 6px 20px;
   border-radius: 4px;
   border: none;
-  color: white;
   font-size: 24px;
+  color: #fa4949;
   cursor: pointer;
   margin-top: 16px;
-  margin-bottom: -22px;
+  margin-bottom: -12px;
   max-width: 150px;
-  align-self: center; ;
+  align-self: center;
+  border: 1px solid #fa4949;
+  :hover {
+    text-decoration-line: none;
+    background-color: #fa4949;
+    color: white;
+    transition: 0.2s all;
+  }
 `;
 
 export const ButtonAdd = styled.p`
@@ -60,7 +73,7 @@ export const NavigationButton = styled.p`
   :hover {
     text-decoration-line: none;
     background-color: #5c4cf7;
-    border-radius: 10px;
+    border-radius: 45px;
     color: #fde5bf;
     box-shadow: 1px 1px 1px #5c4cf7;
     transition: 0.2s all;

@@ -15,8 +15,9 @@ export const MainStyle = styled.div`
     align-items: center;
     background-color: white;
     width: 40%;
-    margin-top:32px;
+    margin:32px 0px;
     border-radius: 25px;
+    padding-bottom: 16px;
 `
 export const Notices = styled.div`
     display: flex;

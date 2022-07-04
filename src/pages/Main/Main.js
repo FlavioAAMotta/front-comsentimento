@@ -123,17 +123,16 @@ export const Main = (props) => {
             onChangeStatus={changeStatus}
           />
         )}
-          <TitleStyle>
-            <h1>Editais</h1>
-            <p> 40 abertos | 5 encerrados</p>
-          </TitleStyle>
+        <TitleStyle>
+          <h1>Editais</h1>
+          <p> 40 abertos | 5 encerrados</p>
+        </TitleStyle>
         <MainStyle>
           <>
             {!isLoading && (
               <NavigationButton onClick={goBack}> &lt; </NavigationButton>
             )}
           </>
-          <hr />
           <Notices>
             {isLoading && <p>Carregando...</p>}
             {!isLoading && notices && noticesList}

@@ -3,7 +3,7 @@ import { descriptionWordCount } from "../../constants/variables";
 export const DescriptionStyled = styled.p`
   text-align: justify;
   text-justify: inter-word;
-  font-size: 24px;
+  font-size: 18px;
 `;
 
 export const Description = (props) => {

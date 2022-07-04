@@ -7,7 +7,6 @@ export const Container = styled.div`
     justify-content: space-between;
     padding: 8px 16px;  
     cursor: default;  
-    margin: 8px;
     padding: 16px;
 `
 export const NoticeTitle = styled.h1`

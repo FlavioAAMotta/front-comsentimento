@@ -14,22 +14,22 @@ export const NoticeContainer = (props) => {
     <>
       <Container>
         <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
-        <hr />
         <Description noticeDescription={props.notice.noticeDescription}>
           {props.notice.noticeDescription}
         </Description>
         
           {props.notice.noticeStatus == 1 ? (
             <ButtonOpen onClick={openModal}>Ver mais</ButtonOpen>
-          ) : (
-            <ButtonClosed onClick={openModal}>Encerrado</ButtonClosed>
-          )}
+            ) : (
+              <ButtonClosed onClick={openModal}>Encerrado</ButtonClosed>
+              )}
           <p>Aberto em: {props.notice.noticeOpeningDate}</p>
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
           data={props.notice}
         />
+              <hr />
       </Container>
     </>
   );
