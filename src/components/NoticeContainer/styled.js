@@ -3,15 +3,15 @@ import { lightVariant } from "../../constants/colors"
 
 export const Container = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    padding: 8px 16px;  
     cursor: default;  
-    padding: 16px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 22px;
 `
-export const NoticeTitle = styled.h1`
-    align-self: center;
-    padding: 16px;
+export const NoticeTitle = styled.p`
+    font-weight: bold;
+    font-size: 18px;
 `
 
 export const ContainerRow = styled.div`
@@ -27,4 +27,17 @@ export const ButtonContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+`
+
+export const TextContainer =  styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const DetailsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    align-items: center;
+    align-self: flex-end;
 `

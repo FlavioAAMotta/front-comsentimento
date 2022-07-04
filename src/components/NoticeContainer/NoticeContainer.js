@@ -1,4 +1,4 @@
-import { Container, NoticeTitle } from "./styled";
+import { Container, NoticeTitle, TextContainer, DetailsContainer } from "./styled";
 import { Description } from "../Description/Description";
 import { ButtonOpen, ButtonClosed } from "../../components/ButtonAdd/ButtonAdd";
 import { Modal } from "../../components/Modal/Modal";
@@ -13,23 +13,25 @@ export const NoticeContainer = (props) => {
   return (
     <>
       <Container>
-        <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
-        <Description noticeDescription={props.notice.noticeDescription}>
-          {props.notice.noticeDescription}
-        </Description>
-        
+        <TextContainer>
+          <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
+          <Description noticeDescription={props.notice.noticeDescription}>
+            {props.notice.noticeDescription}
+          </Description>
+        </TextContainer>
+        <DetailsContainer>
           {props.notice.noticeStatus == 1 ? (
             <ButtonOpen onClick={openModal}>Ver mais</ButtonOpen>
-            ) : (
-              <ButtonClosed onClick={openModal}>Encerrado</ButtonClosed>
-              )}
+          ) : (
+            <ButtonClosed onClick={openModal}>Encerrado</ButtonClosed>
+          )}
           <p>Aberto em: {props.notice.noticeOpeningDate}</p>
-        <Modal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          data={props.notice}
-        />
-              <hr />
+          <Modal
+            showModal={showModal}
+            setShowModal={setShowModal}
+            data={props.notice}
+          />
+        </DetailsContainer>
       </Container>
     </>
   );

@@ -1,2 +1,2 @@
-export const descriptionWordCount = 64
-export const limit = 4
+export const descriptionWordCount = 32
+export const limit = 16

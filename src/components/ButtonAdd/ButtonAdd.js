@@ -6,11 +6,9 @@ export const ButtonOpen = styled.button`
   padding: 6px 20px;
   border-radius: 4px;
   border: 1px solid #044cbc;
-  font-size: 24px;
+  font-size: 14px;
   color: #044cbc;
   cursor: pointer;
-  margin-top: 16px;
-  margin-bottom: -12px;
   max-width: 150px;
   align-self: center;
   :hover {
@@ -27,11 +25,9 @@ export const ButtonClosed = styled.button`
   padding: 6px 20px;
   border-radius: 4px;
   border: none;
-  font-size: 24px;
+  font-size: 14px;
   color: #fa4949;
   cursor: pointer;
-  margin-top: 16px;
-  margin-bottom: -12px;
   max-width: 150px;
   align-self: center;
   border: 1px solid #fa4949;
