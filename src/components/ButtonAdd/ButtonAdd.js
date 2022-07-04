@@ -10,6 +10,10 @@ export const ButtonOpen = styled.button`
   color: white;
   font-size: 24px;
   cursor: pointer;
+  margin-top: 16px;
+  margin-bottom: -22px;
+  max-width: 150px;
+  align-self: center;
 `;
 
 export const ButtonClosed = styled.button`
@@ -21,6 +25,10 @@ export const ButtonClosed = styled.button`
     color: white;
     font-size: 24px;
     cursor: pointer;
+    margin-top: 16px;
+  margin-bottom: -22px;
+    max-width: 150px;
+    align-self: center;
 ;`
 
 export const ButtonAdd = styled.p`

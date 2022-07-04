@@ -4,28 +4,16 @@ import { lightVariant } from "../../constants/colors"
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 8px 16px;  
-    height: 14vh;
     cursor: default;  
-    margin: 16px 0px;
-    background-color: ${lightVariant};
-    background-color: "#001100";
+    margin: 8px;
+    padding: 16px;
+    border: 1px solid black;
 `
-export const NoticeTitle = styled.p`
+export const NoticeTitle = styled.h1`
     align-self: center;
-    font-size: 25px;
-`
-
-export const DisabledContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 8px 16px;  
-    height: 14vh;
-    cursor: default;  
-    margin: 16px 0px;
-    background-color: #dabec8;
+    padding: 16px;
 `
 
 export const ContainerRow = styled.div`
@@ -33,4 +21,12 @@ export const ContainerRow = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+`
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 `

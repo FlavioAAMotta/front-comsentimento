@@ -12,6 +12,7 @@ import { addNotice } from "../../endpoints/addNotice"
 import useRequestData from "../../hooks/useRequestData"
 import { BASE_URL } from '../../constants/urls'
 import GlobalStateContext from "../../global/GlobalStateContext";
+import {limit} from "../../constants/variables"
 
 export const Main = (props) => {
     const pathParams = useParams();
@@ -31,7 +32,7 @@ export const Main = (props) => {
 
     useEffect(() => {
         const page = pathParams.navPage || 0
-        setUrl(`${BASE_URL}/notices?limit=3&offset=${page}`)
+        setUrl(`${BASE_URL}/notices?limit=${limit}&offset=${page}`)
     }, [pathParams.navPage])
 
     useEffect(() => {
