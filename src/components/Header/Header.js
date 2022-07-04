@@ -18,7 +18,6 @@ export const Header = (props) => {
         data.setLoggedIn(false)
         goToMainPageByPage(navigate, 0)
     }
-
     return (
         <HeaderDesign>
             <Logo src={logo} onClick={onClickLogo} />

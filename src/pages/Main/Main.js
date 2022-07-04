@@ -40,8 +40,7 @@ export const Main = (props) => {
   }, [pathParams.navPage]);
 
   useEffect(() => {
-    localStorage.getItem("token") && data.setLoggedIn(true);
-    goToMainPageByPage(navigate, 0);
+    localStorage.getItem("token") && data.loggedIn && goToMainPageByPage(navigate, 0);
   }, []);
 
   if (!pathParams.navPage) {
