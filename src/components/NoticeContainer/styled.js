@@ -9,7 +9,6 @@ export const Container = styled.div`
     cursor: default;  
     margin: 8px;
     padding: 16px;
-    border: 1px solid black;
 `
 export const NoticeTitle = styled.h1`
     align-self: center;
