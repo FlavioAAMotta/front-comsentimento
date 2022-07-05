@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { NoticeForm } from "../../components/NoticeForm/NoticeForm";
-import { MainStyle, Notices, MainContainer, Title, TitleStyle } from "./styled";
+import { MainStyle, Notices, MainContainer } from "./styled";
 import { NoticeContainer } from "../../components/NoticeContainer/NoticeContainer";
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
@@ -17,8 +17,9 @@ import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { limit } from "../../constants/variables";
+import { Title } from "../../components/MainTitle/Title";
 
-export const Main = (props) => {
+export const Main = () => {
   const pathParams = useParams();
   const file = { file: null };
   const { form, onChange, onChangeFile } = useForm({
@@ -40,7 +41,9 @@ export const Main = (props) => {
   }, [pathParams.navPage]);
 
   useEffect(() => {
-    localStorage.getItem("token") && data.loggedIn && goToMainPageByPage(navigate, 0);
+    localStorage.getItem("token") &&
+      data.loggedIn &&
+      goToMainPageByPage(navigate, 0);
   }, []);
 
   if (!pathParams.navPage) {
@@ -64,7 +67,6 @@ export const Main = (props) => {
 
   const onSubmit = async (event) => {
     try {
-      console.log(form.file);
       event.preventDefault();
       if (validateFields(form)) {
         setCreatingNotice(false);
@@ -76,12 +78,12 @@ export const Main = (props) => {
       alert("Erro ao submeter o formulário, tente novamente mais tarde");
     }
   };
-
+  console.log(notices);
   const noticesList =
     notices &&
-    !notices.includes("!DOCTYPE") &&
-    notices.length > 0 &&
-    notices.map((notice) => {
+    notices.notices &&
+    notices.notices.length > 0 &&
+    notices.notices.map((notice) => {
       return (
         <>
           <NoticeContainer key={notice.noticeId} notice={notice} />
@@ -122,10 +124,12 @@ export const Main = (props) => {
             onChangeStatus={changeStatus}
           />
         )}
-        <TitleStyle>
-          <h1>Editais</h1>
-          <p> 40 abertos | 5 encerrados</p>
-        </TitleStyle>
+        {!isLoading && notices && (
+          <Title
+            opened={notices.totalOpened}
+            closed={notices.totalClosed}
+          />
+        )}
         <MainStyle>
           <>
             {!isLoading && (
