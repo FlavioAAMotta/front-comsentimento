@@ -5,7 +5,6 @@ export const MainContainer = styled.header`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #eee;
 `
 
 export const MainStyle = styled.div`
