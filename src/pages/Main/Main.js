@@ -149,7 +149,7 @@ export const Main = () => {
         </MainStyle>
         <p>PÁGINA: {pathParams.navPage}</p>
       </MainContainer>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -1,44 +1,5 @@
 import styled from "styled-components";
 
-export const ButtonOpen = styled.button`
-  background-color: white;
-  min-width: 100px;
-  padding: 6px 20px;
-  border-radius: 4px;
-  border: 1px solid #044cbc;
-  font-size: 14px;
-  color: #044cbc;
-  cursor: pointer;
-  max-width: 150px;
-  align-self: center;
-  :hover {
-    text-decoration-line: none;
-    background-color: #5c4cf7;
-    color: white;
-    transition: 0.2s all;
-  }
-`;
-
-export const ButtonClosed = styled.button`
-  background-color: white;
-  min-width: 100px;
-  padding: 6px 20px;
-  border-radius: 4px;
-  border: none;
-  font-size: 14px;
-  color: #fa4949;
-  cursor: pointer;
-  max-width: 150px;
-  align-self: center;
-  border: 1px solid #fa4949;
-  :hover {
-    text-decoration-line: none;
-    background-color: #fa4949;
-    color: white;
-    transition: 0.2s all;
-  }
-`;
-
 export const ButtonAdd = styled.p`
   margin: 16px 64px;
   border: solid 2px #5c4cf7;

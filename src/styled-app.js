@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { lightBackground } from './constants/colors';
 
 export const GlobalStyle = createGlobalStyle`
     *{

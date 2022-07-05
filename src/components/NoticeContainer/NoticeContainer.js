@@ -1,6 +1,12 @@
-import { Container, NoticeTitle, TextContainer, DetailsContainer } from "./styled";
+import {
+  Container,
+  NoticeTitle,
+  NoticeTitleClosed,
+  TextContainer,
+  DetailsContainer,
+  Date,
+} from "./styled";
 import { Description } from "../Description/Description";
-import { ButtonOpen, ButtonClosed } from "../../components/ButtonAdd/ButtonAdd";
 import { Modal } from "../../components/Modal/Modal";
 import React, { useState } from "react";
 
@@ -14,18 +20,21 @@ export const NoticeContainer = (props) => {
     <>
       <Container>
         <TextContainer>
-          <NoticeTitle>{props.notice.noticeTitle}</NoticeTitle>
+          {props.notice.noticeStatus == 1 ? (
+            <NoticeTitle onClick={openModal}>
+              {props.notice.noticeTitle}
+            </NoticeTitle>
+          ) : (
+            <NoticeTitleClosed onClick={openModal}>
+              {props.notice.noticeTitle}
+            </NoticeTitleClosed>
+          )}
           <Description noticeDescription={props.notice.noticeDescription}>
             {props.notice.noticeDescription}
           </Description>
         </TextContainer>
         <DetailsContainer>
-          {props.notice.noticeStatus == 1 ? (
-            <ButtonOpen onClick={openModal}>Ver mais</ButtonOpen>
-          ) : (
-            <ButtonClosed onClick={openModal}>Encerrado</ButtonClosed>
-          )}
-          <p>Aberto em: {props.notice.noticeOpeningDate}</p>
+          <Date>{props.notice.noticeOpeningDate}</Date>
           <Modal
             showModal={showModal}
             setShowModal={setShowModal}
