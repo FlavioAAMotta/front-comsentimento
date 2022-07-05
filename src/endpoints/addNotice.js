@@ -13,7 +13,6 @@ import { BASE_URL } from "../constants/urls";
 
 const addFile = async (file) => {
     const url = `${BASE_URL}/pdfFile`;
-    console.log(file)
     try {
         const fileName = await axios({
             url: url,
@@ -43,7 +42,6 @@ export const addNotice = async (form) => {
     try {
         const response = await addFile(body.noticePDFDetails)
         body.noticePDFDetails = response.data
-        console.log(body)
         await axios.post(url, body, axiosConfig)
     } catch (err) {
         alert("Dados inválidos");

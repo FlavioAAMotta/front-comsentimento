@@ -14,6 +14,7 @@ export const MainStyle = styled.div`
     justify-content: center;
     align-items: center;
     background-color: white;
+    min-width: 400px;
     width: 40%;
     margin:32px 0px;
     border-radius: 25px;

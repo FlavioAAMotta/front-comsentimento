@@ -8,7 +8,6 @@ import axios from 'axios';
 const GlobalState = (props) => {
     const [loggedIn, setLoggedIn] = useState(false)
     const data = {loggedIn, setLoggedIn}
-    console.log("Log?",loggedIn)
     return (
         <GlobalStateContext.Provider value = {{data}}>
             {props.children}

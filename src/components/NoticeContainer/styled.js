@@ -8,6 +8,7 @@ export const Container = styled.div`
     cursor: default;  
     border-bottom: 1px solid grey;
     margin-bottom: 22px;
+    flex-wrap: wrap;
 `
 export const NoticeTitle = styled.p`
     font-weight: bold;
@@ -32,6 +33,8 @@ export const ButtonContainer = styled.div`
 export const TextContainer =  styled.div`
     display: flex;
     flex-direction: column;
+    min-width: 220px;
+    max-width: 550px;
 `
 
 export const DetailsContainer = styled.div`

@@ -78,7 +78,7 @@ export const Main = () => {
       alert("Erro ao submeter o formulário, tente novamente mais tarde");
     }
   };
-  console.log(notices);
+  
   const noticesList =
     notices &&
     notices.notices &&
